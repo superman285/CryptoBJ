@@ -1,0 +1,74 @@
+.coins-holder{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  height: 45px;
+
+  .player-coins,
+  .dealer-coins{
+    width: 40px;
+    position: relative;
+    z-index: 30;
+    margin: 0 auto;
+
+    .coin-image{
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    @for $i from 0 through 100{
+      .coin-index-#{$i}{
+        z-index: 30 + $i; /* make sure these have higher zindex than cards */
+        bottom: $i * 7px;
+      }
+    }
+  }
+
+  .hand-bet-total{
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .coins-holder{
+    width: 60px;
+    height: 36px;
+    .player-coins,
+    .dealer-coins{
+      width: 32px;
+      .coin-image{
+        width: 32px;
+      }
+    }
+    .hand-bet-total{
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .coins-holder{
+    width: 50px;
+    height: 32px;
+    .player-coins,
+    .dealer-coins{
+      width: 26px;
+      .coin-image{
+        width: 26px;
+      }
+    }
+    .hand-bet-total{
+      font-size: 14px;
+    }
+  }
+}

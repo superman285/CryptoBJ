@@ -1,0 +1,537 @@
+// !Basic reset css and basic layout.
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 500;
+}
+.container {
+    margin: 0 auto;
+}
+.footer {
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.toastMask {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    z-index: -1;
+
+    &.show {
+        z-index: 9;
+
+        .content {
+            opacity: 1;
+            margin-top: 100px;
+        }
+    }
+
+    .content {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, -0%);
+        margin-top: 80px;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        font-size: 14px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 5px 20px;
+        border-radius: 20px;
+        border: 2px solid #d80927;
+    }
+}
+
+.betResultMask {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    z-index: -1;
+    pointer-events: none;
+
+    &.show {
+        z-index: 9;
+
+        .content {
+            opacity: 1;
+            margin-top: 20px;
+        }
+    }
+
+    &.win .content {
+        background: rgb(0, 153, 0);
+    }
+
+    .content {
+        border-radius: 3px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, -0%);
+        margin-top: 80px;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        font-size: 14px;
+        color: #fff;
+        background: #d80927;
+        padding: 5px 20px;
+        width: 340px;
+        margin-top: 0px;
+        border-radius: 20px;
+
+        p {
+            text-align: center;
+
+            code {
+                color: #fff;
+                font-family: inherit;
+                /* text-decoration: underline; */
+            }
+        }
+    }
+}
+
+// bet err Modal | timeout Modal
+.betErrorModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    &-content {
+        & h1 {
+            font-size: 25px;
+            font-weight: 700;
+            color: #ffffff;
+            @media (max-width: 767.98px) {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+// Not Enough Balance Modal
+.notEnoughBalanceModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 60px 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    &-content {
+        & h1 {
+            margin-top: 40px;
+            font-size: 25px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+
+            @media (max-width: 767.98px) {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+//bj tips modal
+.bjTipsModal {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #EEFFED;
+        &-content {
+            & h1 {
+                margin-top: 1rem;
+                font-size: 25px;
+                font-weight: 700;
+                color: #1AB512;
+                @media (max-width: 767.98px) {
+                    font-size: 15px;
+                }
+            }
+        }
+}
+
+// Dividend Modal
+.dividendModal {
+    background: #030b24 url('./assets/pockerbg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    padding: 30px 40px;
+    text-align: center;
+    border-radius: 10px;
+
+    & h1 {
+        font-size: 30px;
+        @media (max-width: 767.98px) {
+            font-size: 17px;
+        }
+    }
+    & p {
+        font-size: 18px;
+        @media (max-width: 767.98px) {
+            font-size: 12px;
+        }
+    }
+    & .dividend-bar {
+        width: 80%;
+        height: 15px;
+        border-radius: 15px;
+        background-color: #ffffff;
+        margin: 20px auto;
+        @media (max-width: 767.98px) {
+            height: 10px;
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+        & .bar-fill {
+            width: 50%;
+            height: 100%;
+            border-radius: 15px;
+            background-color: #d80927;
+        }
+    }
+    & h2 {
+        margin-top: 20px;
+        font-size: 25px;
+        @media (max-width: 767.98px) {
+            font-size: 15px;
+        }
+    }
+    & h3 {
+        font-size: 30px;
+        color: #157103;
+        font-weight: 700;
+        margin-bottom: 30px;
+        @media (max-width: 767.98px) {
+            font-size: 15px;
+        }
+    }
+    .cards-row {
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: 767.98px) {
+            display: block;
+        }
+        & .dividend-card {
+            background-color: #1d243a;
+            border-radius: 4px;
+            border: 1px solid #787878;
+            padding: 20px;
+            width: 300px;
+            font-size: 25px;
+            @media (max-width: 767.98px) {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            & .frozen-count {
+                color: #d80927;
+                font-weight: 700;
+            }
+        }
+    }
+    & .dividend-last-row {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        & .dividend-last-row-col {
+            & .dividend-last-row-col-title {
+                margin: 20px 0px;
+                font-size: 20px;
+                @media (max-width: 767.98px) {
+                    font-size: 14px;
+                }
+            }
+            & .dividend-last-row-col-card {
+                margin: 20px 0px;
+                background-color: #1d243a;
+                border: 1px solid #787878;
+                border-radius: 4px;
+                padding: 10px;
+                font-size: 20px;
+                @media (max-width: 767.98px) {
+                    font-size: 14px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    .div-available-card {
+        color: #157103;
+    }
+    .div-withdrawn-card {
+        color: #d5a30b;
+    }
+    .div-frozen-card {
+        color: #d80927;
+    }
+}
+
+// Referral Modal
+.referralModal {
+    background: #030b24 url('./assets/pockerbg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    padding: 30px 60px;
+    text-align: center;
+    border-radius: 10px;
+
+    @media (max-width: 767.98px) {
+        padding: 10px 10px;
+    }
+
+    & h1 {
+        font-size: 30px;
+        font-weight: 700;
+        width: 300px;
+        margin: 30px auto;
+        @media (max-width: 767.98px) {
+            width: 100%;
+            font-size: 17px;
+        }
+    }
+
+    & .copy-link-div {
+        height: 70px;
+        // width: 100%;
+        border: 7px solid #27263b;
+        background-color: #777c89;
+        border-radius: 70px;
+        padding-left: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 767.98px) {
+            padding-left: 10px;
+        }
+
+        & input {
+            height: 70%;
+            background-color: transparent;
+            border: none;
+            width: 50%;
+            color: #ffffff;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        & .copy-link-btn {
+            height: 100%;
+            color: #ffffff;
+            font-size: 20px;
+            background-color: #d80927;
+            border: none;
+            border-radius: 70px;
+            padding: 0px 30px;
+            @media (max-width: 767.98px) {
+                font-size: 13px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    & .copy-link-points {
+        width: 73%;
+        margin: 40px auto;
+        font-weight: 500;
+        & ul {
+            text-align: left;
+        }
+    }
+}
+
+// Freezable Modal
+.freezableModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 10px;
+
+    & h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffffff;
+
+        @media (max-width: 767.98px) {
+            font-size: 18px;
+        }
+    }
+
+    & h2 {
+        font-size: 27px;
+        font-weight: 700;
+        color: #157103;
+        text-transform: uppercase;
+
+        @media (max-width: 767.98px) {
+            font-size: 16px;
+        }
+    }
+
+    & .freezable-input-div {
+        height: 65px;
+        background-color: #1d243a;
+        width: 60%;
+        margin: 20px auto;
+        padding: 4px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        border: 1px solid #787878;
+
+        @media (max-width: 767.98px) {
+            height: 44px;
+            width: 80%;
+            padding: 4px 5px;
+        }
+
+        & input {
+            background-color: transparent;
+            border: none;
+            color: #ffffff;
+            width: 100%;
+            font-size: 30px;
+            font-weight: 700;
+            padding-left: 20px;
+
+            @media (max-width: 767.98px) {
+                font-size: 15px;
+                padding-left: 10px;
+            }
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.loadingModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 10px;
+
+    & h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffffff;
+
+        @media (max-width: 767.98px) {
+            font-size: 18px;
+        }
+    }
+}
+
+.mainnetModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 10px;
+
+    & h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffffff;
+
+        @media (max-width: 767.98px) {
+            font-size: 18px;
+        }
+    }
+}
+
+.comingModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 10px;
+
+    & h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffffff;
+
+        @media (max-width: 767.98px) {
+            font-size: 18px;
+        }
+    }
+}
+
+.loginModal {
+    background: #000410 url('./assets/pockerbg.png');
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 10px;
+
+    & h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffffff;
+
+        @media (max-width: 767.98px) {
+            font-size: 18px;
+        }
+    }
+
+    & p {
+        color: #ccc;
+        word-break: break-all;
+        font-size: 14px;
+        text-align: left;
+        margin: 14px 0px;
+
+        & a {
+            color: #ccc;
+            text-decoration: underline;
+        }
+    }
+}

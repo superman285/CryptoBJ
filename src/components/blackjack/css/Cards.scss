@@ -1,0 +1,133 @@
+@mixin cardWrapper($width: 60px, $spaceLeft: 20px, $spaceTop: 10px){
+
+  .playing_card_wrapper{
+    position: absolute;
+    width: $width;
+    top: 10px;
+    perspective: 1000px;
+    z-index: 9;
+
+    &[data-side='right']{
+      z-index: 10;
+    }
+
+    .anim_state{
+      transition: 0.5s all;
+    }
+
+    // not visible
+    .state_0{
+      opacity: 0;
+    }
+
+    // on tablet, but face down
+    .state_1{
+      opacity: 1;
+    }
+
+    // on table, face up
+    .state_2{
+      opacity: 1;
+    }
+
+    // beeing thrown away
+    .state_3{
+      transition: 1s 0.3s opacity;
+    }
+
+    @for $i from 0 through 11 {
+      &.card_right_#{$i},
+      &.card_left_#{$i},
+      &.card_dealer_#{$i} {
+        z-index: 10 + $i + 1;
+
+        @if($i == 0) {
+          left: $spaceLeft/2;
+        }
+        @else {
+          left: $spaceLeft * $i + ($spaceLeft/2);
+        }
+
+
+        &.adjacent_cards_up{
+          top: -$spaceTop * ($i - 1);
+        }
+        &.adjacent_cards_down{
+          top: $spaceTop * $i;
+        }
+      }
+
+    }
+    img{
+      width: 100%;
+    }
+
+    &.revealed, &.state_2{
+      .playing_card{
+        transform: rotateY(-180deg);
+      }
+
+      &.instant{
+        .playing_card {
+          transition: 0s all !important;
+        }
+      }
+    }
+
+    .playing_card{
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: all .6s linear;
+      position: absolute;
+    }
+
+    .front, .back {
+      position: absolute;
+      width: $width;
+      height: $width * 1.45;
+      backface-visibility: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .back {
+      display: block;
+      transform: rotateY(180deg);
+      box-sizing: border-box;
+    }
+
+  }
+
+}
+
+.reveal-card{
+  transition: 0s all;
+}
+
+.leave-card{
+  transition: 0s all;
+}
+.leave-card-leave-active{
+  //transition speed must match CARD_LEAVE_ANIMATION_SPEED + CARD_FLIP_ANIMATION_SPEED in src/connstants.js
+  // otherwise leaving card may disapear too early
+  transition: 1.3s visibility;
+}
+
+
+@include cardWrapper(60px, 20px, 10px);
+
+@media (max-width: 767.98px) {
+  @include cardWrapper(54px, 18px, 9px);
+}
+
+@media (max-width: 575.98px) {
+  @include cardWrapper(46px, 15px, 8px);
+}
+
+
+
+//@media(max-width: 768px){
+//  @include cardWrapper(50px, 15px, 7px);
+//}

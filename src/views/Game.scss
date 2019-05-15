@@ -1,0 +1,156 @@
+// Game page scsss
+.game {
+    margin-top: -50px;
+    background: url('../assets/Gamebg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.content {
+    padding-top: 50px;
+}
+.trxCards {
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+.scoreCard {
+    background: url('../assets/score_board.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: auto;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scoreCard-content h1 {
+    font-size: 65px;
+    color: #d80927;
+    font-family: 'Poppins';
+    text-align: center;
+}
+.scoreCard-content h4,
+h6 {
+    font-size: 26px;
+    color: #000000;
+    font-weight: 700;
+    text-align: center;
+}
+.ourGames {
+    font-size: 55px;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+.gamesList {
+    margin-top: 80px;
+    padding-bottom: 100px;
+}
+.gameCard {
+    margin-bottom: 60px;
+    text-align: center;
+}
+.gameImg {
+    max-height: 300px;
+}
+.btnImg {
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    cursor: pointer;
+
+    &:active {
+        transform: translateY(4px);
+    }
+}
+@media (max-width: 767.98px) {
+    .trxCards {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .ourGames {
+        font-size: 25px;
+    }
+    .gamesList {
+        margin-top: 40px;
+        padding-bottom: 50px;
+    }
+    .gameImg {
+        max-height: 250px;
+    }
+    .btnImg {
+        max-height: 55px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+}
+@media (max-width: 399.98px) {
+    .scoreCard {
+        height: 170px;
+        margin-bottom: 20px;
+    }
+    .scoreCard-content h1 {
+        font-size: 16px;
+    }
+    .scoreCard-content h4,
+    h6 {
+        font-size: 13px;
+    }
+}
+@media (min-width: 400px) and (max-width: 459.98px) {
+    .scoreCard {
+        height: 200px;
+        margin-bottom: 20px;
+    }
+    .scoreCard-content h1 {
+        font-size: 23px;
+    }
+    .scoreCard-content h4,
+    h6 {
+        font-size: 15px;
+    }
+}
+@media (min-width: 460px) and (max-width: 767.98px) {
+    .scoreCard {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .scoreCard-content h1 {
+        font-size: 18px;
+    }
+    .scoreCard-content h4,
+    h6 {
+        font-size: 15px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .scoreCard {
+        height: 190px;
+        margin-bottom: 20px;
+    }
+    .scoreCard-content h1 {
+        font-size: 18px;
+    }
+    .scoreCard-content h4,
+    h6 {
+        font-size: 15px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .scoreCard {
+        height: 220px;
+        margin-bottom: 20px;
+    }
+    .scoreCard-content h1 {
+        font-size: 18px;
+    }
+    .scoreCard-content h4,
+    h6 {
+        font-size: 15px;
+    }
+}

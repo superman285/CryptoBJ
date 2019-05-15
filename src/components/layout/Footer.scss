@@ -1,0 +1,39 @@
+$bg: #242333;
+$white: #ffffff;
+
+.footer {
+    background-color: $bg;
+    color: $white;
+    font-size: 15px;
+
+    @media (max-width: 575.98px) {
+        font-size: 12px;
+    }
+
+    &-container {
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .left-side {
+            @media (max-width: 575.98px) {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            height: auto;
+            display: block;
+            text-align: center;
+            padding: 10px;
+        }
+
+        & .right-side span {
+            padding: 0px 20px;
+        }
+        & .right-side span:not(:last-child) {
+            border-right: 1px solid red;
+        }
+    }
+}

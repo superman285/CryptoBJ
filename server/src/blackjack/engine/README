@@ -1,0 +1,7 @@
+Blackjack engine is taken from https://github.com/kedoska/engine-blackjack
+Modified to be used for your game, but basics still the same.
+
+Everything in blackjack/engine folder (EXCEPT for deck.js) is from that repo (with minor modifications),
+so if you need any info on how things work, visit the link above.
+
+blackjack/engine/deck.js is 52 cards deck generator from https://github.com/kedoska/52-deck/
