@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // console.log(process.env);
-const apiUrl = 'http://api.beta.cryptofate.io';
-// const apiUrl = 'http://localhost:3000';
+// const apiUrl = 'http://api.beta.cryptofate.io';
+const apiUrl = 'http://localhost:3000';
 
 export async function getMyBets(address) {
     return (await axios.request({

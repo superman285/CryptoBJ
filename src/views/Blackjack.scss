@@ -27,7 +27,7 @@
 // Blackjack Table
 .blackjack__table {
     position: relative;
-    background: #000410 url(../assets/Ellipse-2.png);
+    background: #000410 url(../assets/ellipse-2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,7 +76,7 @@
 
         .dealer-score {
             top: calc(50% - 10px);
-            left: -20px;
+            left: -30px;
             width: 20px;
             margin: 0;
         }
@@ -92,8 +92,8 @@
 
     &--filldeck {
         position: absolute;
-        top: 20%;
-        right: 20%;
+        top: 0%;
+        right: 28%;
 
         & img {
             height: 90px;
@@ -102,7 +102,7 @@
 
     &--label {
         position: absolute;
-        width: 200px;
+        width: 300px;
         top: 35%;
         left: 0;
         right: 0;
@@ -119,10 +119,13 @@
         position: absolute;
         left: 0;
         right: 0;
-        margin: 0 auto;
+        margin: -6px auto 0;
         color: white;
         font-size: 16px;
         text-align: center;
+        width: 30px!important;
+        border-radius: 10px;
+        background: darkslategrey;
     }
 
     &--playercards {
@@ -168,13 +171,17 @@
                         left: 0;
 
                         border: 2px solid transparent;
-                        border-radius: 50%;
+                        //border-radius: 50%;
+                        border-radius: 10px;
                         transition: 1s all;
                         content: '';
                     }
 
                     &.highlight {
                         &:before {
+                            width: 150%;
+                            height: 100%;
+                            margin-left: -25%;
                             border-color: #39b54a;
                             animation: blinker 1.5s linear infinite;
                         }
@@ -439,7 +446,7 @@
 
     .fate-amount-section {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         text-align: center;
         background-color: #1a2136;
@@ -452,19 +459,29 @@
 
         & .trx-card {
             height: 100%;
-            width: 50%;
+            /*width: 50%;
             border-right: 1px solid #000410;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center;*/
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+            }
         }
 
         & .fate-card {
             height: 100%;
-            width: 50%;
+            /*width: 50%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center;*/
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+            }
         }
 
         .currency-image {
@@ -868,8 +885,8 @@
         height: 58px;
     }
     .blackjack__table--filldeck img {
-        width: 56px;
-        height: 58px;
+        width: 110px;
+        height: 60px;
     }
 
     .blackjack-control-area-row1 {
@@ -1005,8 +1022,8 @@
         height: 72px;
     }
     .blackjack__table--filldeck img {
-        width: 77px;
-        height: 79px;
+        width: 160px;
+        height: 90px;
     }
 
     .blackjack__table--playerbetcoins {
@@ -1014,7 +1031,7 @@
 
     .blackjack__table--label {
         font-size: 32px;
-        width: 160px;
+        width: 300px;
     }
 
     .blackjack-control-area-row3 {

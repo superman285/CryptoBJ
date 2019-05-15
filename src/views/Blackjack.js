@@ -13,7 +13,7 @@ import { cheats } from '../components/blackjack/cheats'; // TODO - this should b
 import { mapActions, mapGetters, mapState } from 'vuex';
 
 
-let ENABLED_COINS = [10, 25, 100, 500];
+let ENABLED_COINS = [10, 50, 100, 500,1000,5000];
 
 let errorNotification = msg => {
     alert(msg); // you may want to change this to something nicer

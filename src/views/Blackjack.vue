@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="blackjack__table--cointray noselect">
-                        <img src="../assets/coin_plate.png" alt="coin plate" />
+                        <!--<img src="../assets/coin_plate.png" alt="coin plate" />-->
 
                         <div class="hidden-dealer-coins">
                             <CoinsDealer v-bind:dealerPays="game.dealerPays"></CoinsDealer>
@@ -45,9 +45,11 @@
                         </div>
                     </div>
                     <div class="blackjack__table--filldeck noselect">
-                        <img src="../assets/fill_card_bundle.png" alt="filldeck" />
+                        <img src="../assets/fillcardbundle.png" alt="filldeck" />
                     </div>
-                    <div class="blackjack__table--label noselect">BlackJack</div>
+                    <div class="blackjack__table--label noselect">
+                        <img src="../assets/boardlogo.png" alt="" width="100%" height="100%">
+                    </div>
                     <div class="blackjack__table--playercards" :class="{ multihand: game.hands > 1 }">
                         <div class="blackjack__table--playercards--hands">
                             <div class="blackjack__table--playercards--hand playercards-hand-left" :class="{ highlight: highlightActiveCards('left') }">
@@ -209,7 +211,7 @@
                             <div class="blackjack-input-bet">
                                 <input v-model="customBet" placeholder="Enter your bet" />
                                 <button @click="gameBet('input')" :class="{ disabled: !confirmBetEnabled() }">Set</button>
-                                <button @click="gameBet('set', 25)" :class="{ disabled: !confirmBetEnabled() }">25 TRX</button>
+                                <button @click="gameBet('set', 20)" :class="{ disabled: !confirmBetEnabled() }">20 TRX</button>
                                 <button @click="gameBet('set', 100)" :class="{ disabled: !confirmBetEnabled() }">100 TRX</button>
                                 <button @click="gameBet('set', 500)" :class="{ disabled: !confirmBetEnabled() }">500 TRX</button>
                             </div>

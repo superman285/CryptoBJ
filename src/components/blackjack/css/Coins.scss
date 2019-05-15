@@ -24,7 +24,7 @@
     @for $i from 0 through 100{
       .coin-index-#{$i}{
         z-index: 30 + $i; /* make sure these have higher zindex than cards */
-        bottom: $i * 7px;
+        bottom: $i * 6px;
       }
     }
   }
