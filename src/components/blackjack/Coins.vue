@@ -4,14 +4,12 @@
 
     <div class="player-coins"
          v-for="n in checkDoubleBet" :key="`coin_${n}`">
-
-      <transition-group
+      <!--<transition-group
             tag="div"
             name="coins"
             v-on:leave="onLeaveTransition"
             :duration="{leave: 1000}"
-      >
-
+      >-->
         <img v-for="(coin,index) in game.betHistory"
              v-if="game.betHistory.length > 0 && index <= 2"
              v-show="coin.show"
@@ -20,14 +18,14 @@
              :class="`coin-image coin-index-${index}`"
              :src="getCoinImage(coin.value)"
         />
-      </transition-group>
+      <!--</transition-group>-->
 
-      <transition name="coins-total">
+      <!--<transition name="coins-total">-->
         <div class="hand-bet-total"
              v-show="totalBetVisible && game.betHistory.length > 0">
           {{ calcCoinValue() }}
         </div>
-      </transition>
+      <!--</transition>-->
 
 
     </div>

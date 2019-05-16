@@ -501,6 +501,7 @@ export default {
 
         // this makes slick split animation
         prepareForNextAction(actionName) {
+
             if (actionName === 'split') {
                 this.$root.$emit('updatePositions');
 
@@ -515,6 +516,8 @@ export default {
                 // also move 2nd card on right to 1st card on left (for smooth transition)
                 let _first = this.game.state.handInfo.right.cards[0];
                 let _second = this.game.state.handInfo.right.cards[1];
+
+                console.log('left2',this.game.state.handInfo);
 
                 this.game.state.handInfo.left = { cards: [_first] };
                 this.game.state.handInfo.right.cards = [_second];

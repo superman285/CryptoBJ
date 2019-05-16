@@ -25,9 +25,9 @@
                             <CoinsDealer v-bind:dealerPays="game.dealerPays"></CoinsDealer>
                         </div>
                     </div>
-                    <!--<div class="blackjack__table&#45;&#45;emptydeck noselect">
+                    <div style="display:none" class="blackjack__table--emptydeck noselect">
                         <img src="../assets/empty_card_bundle.png" alt="emptydeck" />
-                    </div>-->
+                    </div>
                     <div class="blackjack__table--dealercards">
                         <div class="blackjack__table--dealercards--hand" v-if="game.ready && game.state.dealerCards">
                             <div class="blackjack__table--score dealer-score" v-show="game.cardValues.dealer > 0">
@@ -218,7 +218,6 @@
                             <button class="clearCoins" @click="clearCoins()" style="background: red">clear</button>
 
                             <button @click="gameBet('confirm')" style="background: green">confirm</button>
-
                         </div>
 
                         <div class="blackjack-control-area-row2">
