@@ -196,14 +196,29 @@
                         </div>
                     </div>
 
+
                     <div class="default-controls">
-                        <div class="blackjack-control-area-row1">
+                        <!--<div class="blackjack-control-area-row1">
                             <div class="blackjack-total-bet-container">
                                 <div class="total-bet-amt-card">
                                     <h3>{{ currentTotalBetAmount() }}</h3>
                                     <h4>total bet amount</h4>
                                 </div>
                             </div>
+                        </div>-->
+
+                        <div class="blackjack-control-area-coinsrow">
+                            <button @click="gameBet('inc', 10)" :class="{ disabled: !confirmBetEnabled() }">10 TRX</button>
+                            <button @click="gameBet('inc', 50)" :class="{ disabled: !confirmBetEnabled() }">50 TRX</button>
+                            <button @click="gameBet('inc', 100)" :class="{ disabled: !confirmBetEnabled() }">100 TRX</button>
+                            <button @click="gameBet('inc', 500)" :class="{ disabled: !confirmBetEnabled() }">500 TRX</button>
+                            <button @click="gameBet('inc', 1000)" :class="{ disabled: !confirmBetEnabled() }">1000 TRX</button>
+                            <button @click="gameBet('inc', 5000)" :class="{ disabled: !confirmBetEnabled() }">5000 TRX</button>
+
+                            <button class="clearCoins" @click="clearCoins()" style="background: red">clear</button>
+
+                            <button @click="gameBet('confirm')" style="background: green">confirm</button>
+
                         </div>
 
                         <div class="blackjack-control-area-row2">
@@ -286,6 +301,8 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
                 <div class="blackjack-tablearea">

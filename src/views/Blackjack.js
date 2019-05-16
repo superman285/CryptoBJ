@@ -253,6 +253,11 @@ export default {
         showCoinValueInText() {
             this.$root.$emit('coinsTotalBetVisible', true);
         },
+        
+        clearCoins(){
+            this.gameBet('clear');
+            console.log('clear all coins');
+        },
 
         gameBet(type, amount) {
             if (this.gameNeedsToRestart()) {
@@ -292,10 +297,24 @@ export default {
                 case 'input':
                     this.betInput();
                     break;
+                case 'clear':
+                    this.clearBet();
+                    break;
                 default:
                     console.log('!! Unknown game bet type', type, amount);
                     break;
             }
+        },
+        
+        clearBet() {
+            this.game.betHistory.splice(0)
+            console.log('betHistory',this.game.betHistory);
+
+            this.player.softBalance += this.game.prepBet;
+            this.game.prepBet = 0;
+
+            console.log('player softBalance',this.player.softBalance);
+            console.log('prepBet',this.game.prepBet);
         },
 
         increaseBet(amount) {
@@ -306,15 +325,18 @@ export default {
 
             if (this.game.prepBet + amount > this.player.balance) {
                 console.log('Balance insufficient #1');
+                //TODO: show toast
                 return;
             }
             if (this.game.prepBet + amount > this.game.rules.maximumBet) {
-                console.log('Maximum bet is: ', this.game.rules.maximumBet);
+                console.log('exceed Maximum bet.Maximum bet is: ', this.game.rules.maximumBet);
+                //TODO: show toast
                 return;
             }
 
             this.game.betHistory.push({ value: amount, show: true });
             this.orderBetHistory();
+            console.log('inc bethis',this.game.betHistory);
 
             this.player.softBalance -= amount;
             this.game.prepBet += amount;
@@ -405,6 +427,7 @@ export default {
 
             let leftOvers = desiredHalfBet;
             let halfBet = 0;
+            //not change the arr ENABLED_COINS
             let coins = ENABLED_COINS.slice().reverse(); // make sure array goes from highest values first
             for (let i = 0; i < coins.length; i++) {
                 let coin = parseInt(coins[i]);
