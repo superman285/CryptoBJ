@@ -118,6 +118,11 @@
                     </transition>
                 </div>
 
+
+                <!--addcoin img -->
+
+
+
                 <div class="blackjack-control-area">
                     <!--MOBILE GAME CONTROLS-->
 
@@ -207,22 +212,11 @@
                             </div>
                         </div>-->
 
-                        <div class="blackjack-control-area-coinsrow">
-                            <button @click="gameBet('inc', 10)" :class="{ disabled: !confirmBetEnabled() }">10 TRX</button>
-                            <button @click="gameBet('inc', 50)" :class="{ disabled: !confirmBetEnabled() }">50 TRX</button>
-                            <button @click="gameBet('inc', 100)" :class="{ disabled: !confirmBetEnabled() }">100 TRX</button>
-                            <button @click="gameBet('inc', 500)" :class="{ disabled: !confirmBetEnabled() }">500 TRX</button>
-                            <button @click="gameBet('inc', 1000)" :class="{ disabled: !confirmBetEnabled() }">1000 TRX</button>
-                            <button @click="gameBet('inc', 5000)" :class="{ disabled: !confirmBetEnabled() }">5000 TRX</button>
 
-                            <button class="clearCoins" @click="clearCoins()" style="background: red">clear</button>
-
-                            <button @click="gameBet('confirm')" style="background: green">confirm</button>
-                        </div>
 
                         <div class="blackjack-control-area-row2">
                             <!--betting with set values and input-->
-                            <div class="blackjack-input-bet">
+                            <!--<div class="blackjack-input-bet">
                                 <input v-model="customBet" placeholder="Enter your bet" />
                                 <button @click="gameBet('input')" :class="{ disabled: !confirmBetEnabled() }">Set</button>
                                 <button @click="gameBet('set', 20)" :class="{ disabled: !confirmBetEnabled() }">20 TRX</button>
@@ -235,7 +229,7 @@
                                 <button @click="gameBet('half')">1/2</button>
                                 <button @click="gameBet('min')">min</button>
                                 <button @click="gameBet('max')">max</button>
-                            </div>
+                            </div>-->
 
                             <div class="bet-action-btns-section">
                                 <Button
