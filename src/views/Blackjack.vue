@@ -59,7 +59,6 @@
                                     </div>
 
                                     <!--    PLAYER CARDS ON LEFT   -->
-
                                     <Cards
                                         v-bind:cards="game.state.handInfo.left.cards"
                                         v-bind:state="game.state"
@@ -68,8 +67,21 @@
                                     ></Cards>
                                 </div>
 
-                                <div class="blackjack__table--playerbetcoins" v-show="game.ready && game.hands > 1 && handHasCards('left')">
+                                <div class="blackjack__table--playerbetcoins" v-show="game.ready && game.hands > 1 && handHasCards('left')" :class="{betted: game.playerConfirmBet}">
                                     <Coins v-bind:game="game" v-bind:side="`left`" v-bind:calcCoinValue="currentBetAmountPerGroupOfChips"></Coins>
+
+                                    <!--confirm cancel button-->
+                                    <div class="confirm-area" v-show="game.prepBet && !game.playerConfirmBet">
+                                        <img src="../assets/cancel.png"
+                                             alt="cancelbtn"
+                                             @click="clearCoins()"
+                                        >
+                                        <img src="../assets/confirm.png"
+                                             alt="confirmbtn"
+                                             @click="gameBet('confirm')"
+                                        >
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -89,15 +101,77 @@
                                     ></Cards>
                                 </div>
 
-                                <div class="blackjack__table--playerbetcoins">
+                                <div class="blackjack__table--playerbetcoins" :class="{betted: game.playerConfirmBet}">
                                     <Coins v-bind:game="game" v-bind:side="`right`" v-bind:calcCoinValue="currentBetAmountPerGroupOfChips"></Coins>
+                                    <!--confirm cancel button-->
+                                    <div class="confirm-area" v-show="game.prepBet && !game.playerConfirmBet">
+                                        <img src="../assets/cancel.png"
+                                             alt="cancelbtn"
+                                             @click="clearCoins()"
+                                        >
+                                        <img src="../assets/confirm.png"
+                                             alt="confirmbtn"
+                                             @click="gameBet('confirm')"
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
 
-                    <!--end game popup-->
 
+                    <!--confirm cancel button-->
+                    <!--<div class="confirm-area" v-show="game.prepBet && !game.playerConfirmBet">
+                        <img src="../assets/cancel.png"
+                             alt="cancelbtn"
+                             @click="clearCoins()"
+                        >
+                        <img src="../assets/confirm.png"
+                             alt="confirmbtn"
+                             @click="gameBet('confirm')"
+                        >
+                    </div>-->
+
+                    <!--addcoin img -->
+                    <div class="blackjack__table--coinsrow" v-show="!game.playerConfirmBet">
+                        <!--<button @click="gameBet('inc', 10)" :class="{ disabled: !confirmBetEnabled() }">10 TRX</button>
+                        <button @click="gameBet('inc', 50)" :class="{ disabled: !confirmBetEnabled() }">50 TRX</button>
+                        <button @click="gameBet('inc', 100)" :class="{ disabled: !confirmBetEnabled() }">100 TRX</button>
+                        <button @click="gameBet('inc', 500)" :class="{ disabled: !confirmBetEnabled() }">500 TRX</button>
+                        <button @click="gameBet('inc', 1000)" :class="{ disabled: !confirmBetEnabled() }">1000 TRX</button>
+                        <button @click="gameBet('inc', 5000)" :class="{ disabled: !confirmBetEnabled() }">5000 TRX</button>-->
+                        <img src="../assets/10_coin.png"
+                             alt="10coin"
+                             @click="gameBet('inc',10)"
+                        >
+                        <img src="../assets/50_coin.png"
+                             alt="10coin"
+                             @click="gameBet('inc',50)"
+                        >
+                        <img src="../assets/100_coin.png"
+                             alt="10coin"
+                             @click="gameBet('inc',100)"
+                        >
+                        <img src="../assets/500_coin.png"
+                             alt="10coin"
+                             @click="gameBet('inc',500)"
+                        >
+                        <img src="../assets/1000_coin.png"
+                             alt="10coin"
+                             @click="gameBet('inc',1000)"
+                        >
+                        <img src="../assets/5000_coin.png"
+                             alt="10coin"
+                             @click="gameBet('inc',5000)"
+                        >
+
+
+                    </div>
+
+
+                    <!--end game popup-->
                     <transition name="endgame_state">
                         <div class="endgame_state endgame_state_tie" v-if="game.currentAction == 'tie'">
                             <span>It's a tie.</span>
@@ -117,10 +191,6 @@
                         </div>
                     </transition>
                 </div>
-
-
-                <!--addcoin img -->
-
 
 
                 <div class="blackjack-control-area">
@@ -212,10 +282,8 @@
                             </div>
                         </div>-->
 
-
-
-                        <div class="blackjack-control-area-row2">
-                            <!--betting with set values and input-->
+                        <div class="blackjack-control-area-row2" v-show="game.playerConfirmBet">
+                            <!--betting with set values and input|old bet coins way-->
                             <!--<div class="blackjack-input-bet">
                                 <input v-model="customBet" placeholder="Enter your bet" />
                                 <button @click="gameBet('input')" :class="{ disabled: !confirmBetEnabled() }">Set</button>
@@ -231,7 +299,7 @@
                                 <button @click="gameBet('max')">max</button>
                             </div>-->
 
-                            <div class="bet-action-btns-section">
+                            <!--<div class="bet-action-btns-section">
                                 <Button
                                     type="button big green clickable mr-2"
                                     label="repeat"
@@ -244,27 +312,13 @@
                                     @button-clicked="gameBet('confirm')"
                                     :class="{ disabled: !confirmBetEnabled() }"
                                 ></Button>
-                            </div>
-                        </div>
-
-                        <div class="blackjack-control-area-row3">
-                            <div class="fate-amount-section">
-                                <div class="trx-card">
-                                    <div>
-                                        <img class="currency-image" src="../assets/trx.png" alt="trx" />
-                                        <!--soft balance is frontend based, but gets confirmed once it goes thru backend-->
-                                        <h6>{{ player.softBalance | balanceInTrx }} trx</h6>
-                                    </div>
-                                </div>
-                                <div class="fate-card">
-                                    <div>
-                                        <img class="currency-image" src="../assets/fate.png" alt="fate" />
-                                        <h6>0.000 fate</h6>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </div>-->
                             <div class="blackjack-deals-hit-stand-btns" v-if="game.ready">
+
+                                <Button type="button clickable" label="draw" @button-clicked="drawMethod()">
+                                        <!--:class="{ disabled: !actionEnabled('draw') }"-->
+                                </Button>
+
                                 <Button type="button clickable" label="hit" @button-clicked="userAction('hit')" :class="{ disabled: !actionEnabled('hit') }">
                                 </Button>
 
@@ -292,6 +346,55 @@
                                 >
                                 </Button>
                             </div>
+
+                        </div>
+
+                        <div class="blackjack-control-area-row3">
+                            <div class="fate-amount-section">
+                                <div class="trx-card">
+                                    <div>
+                                        <img class="currency-image" src="../assets/trx.png" alt="trx" />
+                                        <!--soft balance is frontend based, but gets confirmed once it goes thru backend-->
+                                        <h6>{{ player.softBalance | balanceInTrx }} trx</h6>
+                                    </div>
+                                </div>
+                                <div class="fate-card">
+                                    <div>
+                                        <img class="currency-image" src="../assets/fate.png" alt="fate" />
+                                        <h6>0.000 fate</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--old 4 buttons-->
+                            <!--<div class="blackjack-deals-hit-stand-btns" v-if="game.ready">
+                                <Button type="button clickable" label="hit" @button-clicked="userAction('hit')" :class="{ disabled: !actionEnabled('hit') }">
+                                </Button>
+
+                                <Button
+                                    type="button clickable"
+                                    label="stand"
+                                    @button-clicked="userAction('stand')"
+                                    :class="{ disabled: !actionEnabled('stand') }"
+                                >
+                                </Button>
+
+                                <Button
+                                    type="button clickable"
+                                    label="double"
+                                    @button-clicked="userAction('double')"
+                                    :class="{ disabled: !actionEnabled('double') }"
+                                >
+                                </Button>
+
+                                <Button
+                                    type="button clickable"
+                                    label="split"
+                                    @button-clicked="userAction('split')"
+                                    :class="{ disabled: !actionEnabled('split') }"
+                                >
+                                </Button>
+                            </div>-->
                         </div>
                     </div>
 

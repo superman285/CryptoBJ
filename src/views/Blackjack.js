@@ -58,6 +58,7 @@ export default {
                 currentDelay: 0,
                 double: 1,
                 clean: false,
+                playerConfirmBet: false,
             },
 
             cheats: cheats !== undefined ? cheats : {},
@@ -124,6 +125,7 @@ export default {
         };
 
         this.socket.on('action', data => {
+
             let syncState = this.syncCardAnimations(data.state);
             this.parseIncomingNewData(syncState);
             vm.game.state = syncState;
@@ -180,6 +182,9 @@ export default {
             'getMyBets',
             'getAllBets',
         ]),
+        drawMethod(){
+            console.log('没绑上');
+            },
         changeVisibleCardScore(side, score) {
             let value = 0;
             if (score.hi > 21) {
@@ -187,7 +192,6 @@ export default {
             } else {
                 value = score.hi;
             }
-
             this.game.cardValues[side] = value;
         },
 
@@ -198,7 +202,6 @@ export default {
             }
 
             let vm = this;
-
             if (params.restart === true && this.game.state.dealerCards !== undefined) {
                 this.game.state.stage = 'done';
                 this.game.clean = false;
@@ -226,7 +229,6 @@ export default {
         },
         gameAction() {
             // this.game.rounds += 1;
-
             if (this.gameNeedsToRestart()) {
                 let vm = this;
                 this.game.delayedAction = () => {
@@ -256,7 +258,6 @@ export default {
         
         clearCoins(){
             this.gameBet('clear');
-            console.log('clear all coins');
         },
 
         gameBet(type, amount) {
@@ -308,13 +309,8 @@ export default {
         
         clearBet() {
             this.game.betHistory.splice(0)
-            console.log('betHistory',this.game.betHistory);
-
             this.player.softBalance += this.game.prepBet;
             this.game.prepBet = 0;
-
-            console.log('player softBalance',this.player.softBalance);
-            console.log('prepBet',this.game.prepBet);
         },
 
         increaseBet(amount) {
@@ -336,7 +332,6 @@ export default {
 
             this.game.betHistory.push({ value: amount, show: true });
             this.orderBetHistory();
-            console.log('inc bethis',this.game.betHistory);
 
             this.player.softBalance -= amount;
             this.game.prepBet += amount;
@@ -482,6 +477,9 @@ export default {
                     amount: amount,
                 });
             }
+            //after bet successfully
+            this.game.playerConfirmBet = true;
+            console.log('playerConfirmBet',this.game.playerConfirmBet);
 
             this.showCoinValueInText();
         },
@@ -504,7 +502,6 @@ export default {
 
             if (actionName === 'split') {
                 this.$root.$emit('updatePositions');
-
                 // need to make sure that 2nd card on the right is hidden straight away, because it will be changed and animated again
 
                 this.game.animations.right[0] = constants.CARD_STATE_FACE_UP;
@@ -587,6 +584,7 @@ export default {
         syncCardAnimations(state) {
             let playerSides = ['right', 'left'];
             for (let s in playerSides) {
+
                 let side = playerSides[s];
                 if (this.handHasCards(side, state)) {
                     for (let i in state.handInfo[side].cards) {
@@ -630,6 +628,7 @@ export default {
                     vm.setAnimationCardState(_side, _index, _animState);
                 }, _delay);
             };
+            
             let playDelayedSound = (soundKey, _delay) => {
                 setTimeout(() => {
                     vm.$emit('sound:' + soundKey);
@@ -644,10 +643,30 @@ export default {
             // player cards
             for (let side in this.game.state.handInfo) {
                 if (this.handHasCards(side)) {
-                    for (let i = 0; i < this.game.state.handInfo[side].cards.length; i++) {
+
+
+                    //第一张翻，后续先不翻
+                    if (this.game.state.handInfo[side].cards[0].anim === 0) {
+                        console.log('真正玩家翻牌');
+                        //翻到反面
+                        animCard(side, 0, constants.CARD_STATE_FACE_DOWN, delay);
+
+                        //翻到正面
+                        animCard(side, 0, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
+                        playDelayedSound('shuffle', delay);
+                        delay += delayInc;
+                    }
+                    for (let i = 1; i < this.game.state.handInfo[side].cards.length; i++) {
+                        console.log('玩家牌数',this.game.state.handInfo[side].cards.length);
+                        console.log('绑方法');
+                        vm.drawMethod = animCard.bind(undefined,side, 0, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
                         if (this.game.state.handInfo[side].cards[i].anim === 0) {
+                            console.log('真正玩家翻牌');
+                            //翻到反面
                             animCard(side, i, constants.CARD_STATE_FACE_DOWN, delay);
-                            animCard(side, i, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
+
+                            //翻到正面
+                            //animCard(side, i, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
                             playDelayedSound('shuffle', delay);
                             delay += delayInc;
                         }
@@ -660,6 +679,7 @@ export default {
             // dealer carsd
             let side = 'dealer';
 
+            //真正庄家翻牌 第二张不翻，玩家模仿这个
             if (this.game.state.dealerCards !== undefined) {
                 for (let i = 0; i < this.game.state.dealerCards.length; i++) {
                     if (this.game.state.dealerCards[i].anim === 0) {
@@ -670,10 +690,12 @@ export default {
                             // TODO and user ended his turn
                             // dont flip hidden card on dealer (it wont have image anyway)
                         } else {
+                            console.log('发牌庄家翻正面');
                             animCard(side, i, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
                             delay += delayInc;
                         }
                     } else if (this.game.state.dealerCards[i].anim === 1 && this.game.state.stage === 'done') {
+                        console.log('其他情况庄家翻正面');
                         animCard(side, i, constants.CARD_STATE_FACE_UP, delay);
                         delay += delayInc;
                     }
@@ -777,6 +799,8 @@ export default {
             setTimeout(() => {
                 vm.game.currentAction = constants.NEED_RESTART;
                 vm.game.busy = false;
+                this.game.playerConfirmBet = false;
+                this.game.prepBet = 0;
             }, 2000);
         },
 

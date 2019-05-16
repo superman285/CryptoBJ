@@ -130,7 +130,7 @@
 
     &--playercards {
         position: absolute;
-        top: 50%;
+        top: 47%;
         width: 100px;
         left: 0;
         right: 0;
@@ -181,7 +181,7 @@
                         &:before {
                             width: 150%;
                             height: 100%;
-                            margin-left: -25%;
+                            margin-left: -5%;
                             border-color: #39b54a;
                             animation: blinker 1.5s linear infinite;
                         }
@@ -223,6 +223,21 @@
             position: relative;
             width: 100%;
         }
+
+    }
+
+    /*.confirm-area {
+        position: absolute;
+        right: 60px;
+        top: 70%;
+    }*/
+
+    &--coinsrow {
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
     }
 
     .blackjack__table--playercards-wrapper {
@@ -244,7 +259,25 @@
     &--playerbetcoins {
         position: absolute;
         width: 100px;
-        top: 110px;
+        //after betted
+
+        //bet
+        right: -35vw;
+        top: 70px;
+        transition: all 1s ease-out;
+
+        &.betted {
+            right: 0;
+            top: 110px;
+        }
+
+
+
+
+        .confirm-area {
+            width: 100px;
+            margin-top: 30px;
+        }
     }
 
     .endgame_state {
@@ -491,11 +524,6 @@
             font-size: 18px;
             font-weight: 700;
         }
-    }
-
-
-    &-coinsrow {
-
     }
 
     &-row1 {
@@ -1032,6 +1060,8 @@
     }
 
     .blackjack__table--playerbetcoins {
+        width: 100px;
+        height: 85px;
     }
 
     .blackjack__table--label {
