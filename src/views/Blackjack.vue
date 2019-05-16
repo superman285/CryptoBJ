@@ -3,16 +3,16 @@
         <div class="container">
             <div class="blackjack__content">
                 <div class="blackjack__table">
-                    <div v-if="cheats.enabled" class="cheats">
-                        <button class="cheats-title" @click="cheats.visible = !cheats.visible">
-                            #CHEATS
-                            <small>Click to toggle visiblity</small>
-                        </button>
-                        {{/* eslint-disable */}}
-                        <button v-if="cheats.visible" v-for="(option, index) in cheats.options" @click="triggerCheats(option)" :key="index">
-                            {{ option.text }}
-                        </button>
-                    </div>
+                    <!--<div v-if="cheats.enabled" class="cheats">-->
+                        <!--<button class="cheats-title" @click="cheats.visible = !cheats.visible">-->
+                            <!--#CHEATS-->
+                            <!--<small>Click to toggle visiblity</small>-->
+                        <!--</button>-->
+                        <!--{{/* eslint-disable */}}-->
+                        <!--<button v-if="cheats.visible" v-for="(option, index) in cheats.options" @click="triggerCheats(option)" :key="index">-->
+                            <!--{{ option.text }}-->
+                        <!--</button>-->
+                    <!--</div>-->
 
                     <div v-if="soundsEnabled" class="audio_icon" :class="{ muted: muted }" @click="toggleMute()">
                         <img src="../assets/btn_audio.png" />
@@ -25,9 +25,9 @@
                             <CoinsDealer v-bind:dealerPays="game.dealerPays"></CoinsDealer>
                         </div>
                     </div>
-                    <div class="blackjack__table--emptydeck noselect">
+                    <!--<div class="blackjack__table&#45;&#45;emptydeck noselect">
                         <img src="../assets/empty_card_bundle.png" alt="emptydeck" />
-                    </div>
+                    </div>-->
                     <div class="blackjack__table--dealercards">
                         <div class="blackjack__table--dealercards--hand" v-if="game.ready && game.state.dealerCards">
                             <div class="blackjack__table--score dealer-score" v-show="game.cardValues.dealer > 0">
