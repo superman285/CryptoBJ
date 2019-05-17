@@ -28,8 +28,17 @@ let _initiate = (callback)=>{
     for (let key in _list) {
         audio[key] = new Audio(_list[key]);
         audio[key].volume = 0;
-        audio[key].play();
-        audio[key].pause();
+
+        //handle play with googledevelopers solution
+        let playPromise = audio[key].play();
+        if (playPromise) {
+            playPromise.then(()=>{
+                audio[key].pause();
+            }).catch(err=>{
+                //auto-play was prevented
+                //show paused UI
+            })
+        }
         audio[key].volume = 1;
     }
 
