@@ -503,7 +503,6 @@ export default {
             if (actionName === 'split') {
                 this.$root.$emit('updatePositions');
                 // need to make sure that 2nd card on the right is hidden straight away, because it will be changed and animated again
-
                 this.game.animations.right[0] = constants.CARD_STATE_FACE_UP;
                 this.game.animations.right[1] = constants.CARD_STATE_HIDDEN;
 
@@ -643,7 +642,6 @@ export default {
             // player cards
             for (let side in this.game.state.handInfo) {
                 if (this.handHasCards(side)) {
-
 
                     //第一张翻，后续先不翻
                     if (this.game.state.handInfo[side].cards[0].anim === 0) {

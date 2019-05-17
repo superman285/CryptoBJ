@@ -106,7 +106,6 @@
 
                     </div>
 
-
                     <!--addcoin img -->
                     <div class="blackjack__table--coinsrow" v-show="!game.playerConfirmBet">
                         <img src="../assets/10_coin.png"
@@ -136,7 +135,6 @@
 
 
                     </div>
-
 
                     <!--end game popup-->
                     <transition name="endgame_state">
@@ -172,7 +170,6 @@
                                 <button @click="gameBet('half')">1/2</button>
                             </div>
                         </div>-->
-
                         <div class="blackjack-control-area-row2">
                             <div class="bet-action-btns-section">
                                 <Button
