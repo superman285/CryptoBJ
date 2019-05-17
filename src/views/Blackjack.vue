@@ -197,14 +197,14 @@
                     <!--MOBILE GAME CONTROLS-->
 
                     <div class="mobile-controls">
-                        <div class="blackjack-control-area-row1">
+                        <!--<div class="blackjack-control-area-row1">
                             <div class="blackjack-input-bet">
                                 <input v-model="customBet" placeholder="Enter your bet" />
                                 <button @click="gameBet('input')" :class="{ disabled: !confirmBetEnabled() }">Set</button>
                                 <button @click="gameBet('double')">2x</button>
                                 <button @click="gameBet('half')">1/2</button>
                             </div>
-                        </div>
+                        </div>-->
 
                         <div class="blackjack-control-area-row2">
                             <div class="bet-action-btns-section">

@@ -648,10 +648,7 @@ export default {
                     //第一张翻，后续先不翻
                     if (this.game.state.handInfo[side].cards[0].anim === 0) {
                         console.log('真正玩家翻牌');
-                        //翻到反面
                         animCard(side, 0, constants.CARD_STATE_FACE_DOWN, delay);
-
-                        //翻到正面
                         animCard(side, 0, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
                         playDelayedSound('shuffle', delay);
                         delay += delayInc;
@@ -662,11 +659,11 @@ export default {
                         vm.drawMethod = animCard.bind(undefined,side, 0, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
                         if (this.game.state.handInfo[side].cards[i].anim === 0) {
                             console.log('真正玩家翻牌');
-                            //翻到反面
+                            //turn to back side
                             animCard(side, i, constants.CARD_STATE_FACE_DOWN, delay);
 
-                            //翻到正面
-                            //animCard(side, i, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
+                            //turn to front side
+                            animCard(side, i, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
                             playDelayedSound('shuffle', delay);
                             delay += delayInc;
                         }
@@ -679,7 +676,7 @@ export default {
             // dealer carsd
             let side = 'dealer';
 
-            //真正庄家翻牌 第二张不翻，玩家模仿这个
+            //真正庄家翻牌 第二张不翻，
             if (this.game.state.dealerCards !== undefined) {
                 for (let i = 0; i < this.game.state.dealerCards.length; i++) {
                     if (this.game.state.dealerCards[i].anim === 0) {
