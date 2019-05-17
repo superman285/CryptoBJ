@@ -31,14 +31,15 @@
 
     .hand-bet-total {
         position: absolute;
+        left: -15px;
         bottom: -22px;
-        width: 100%;
+        width: 200%;
         font-size: 16px;
         line-height: 18px;
-        //color: #1AB512;
-        color: white;
-        text-align: center;
-        background: linear-gradient(90deg, rgba(0, 200, 200, 0.3) 0%, rgba(1, 1, 20, 0.8) 20%, rgba(1, 1, 20, 0.8) 80%, rgba(0, 212, 255, 0.3) 100%);
+        font-weight: 700;
+        color: #1AB512;
+        //color: white;
+        /*background: linear-gradient(90deg, rgba(0, 200, 200, 0.3) 0%, rgba(1, 1, 20, 0.8) 20%, rgba(1, 1, 20, 0.8) 80%, rgba(0, 212, 255, 0.3) 100%);*/
     }
 }
 

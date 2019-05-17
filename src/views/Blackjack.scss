@@ -278,9 +278,6 @@
             top: 110px;
         }
 
-
-
-
         .confirm-area {
             width: 100px;
             margin-top: 30px;
@@ -870,7 +867,8 @@
     }
 
     .blackjack-control-area {
-        margin-top: -80px;
+        //mediascreen
+        margin-top: 0px;
     }
 
     .blackjack-control-area-row1 {
@@ -1067,6 +1065,10 @@
         height: 50px;
     }
 
+    .blackjack .blackjack-deals-hit-stand-btns .button {
+        width: 100px!important;
+    }
+
     .blackjack__table--playercards-wrapper,
     .blackjack__table--playercards--hands,
     .blackjack__table--dealercards {
@@ -1148,7 +1150,7 @@
         width: 130px;
     }
     .blackjack .blackjack-deals-hit-stand-btns .button {
-        width: 110px;
+        width: 120px;
     }
 
     .blackjack-control-area-row3 {
