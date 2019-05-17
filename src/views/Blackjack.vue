@@ -25,7 +25,7 @@
                             <CoinsDealer v-bind:dealerPays="game.dealerPays"></CoinsDealer>
                         </div>
                     </div>
-                    <div style="display:none" class="blackjack__table--emptydeck noselect">
+                    <div style="visibility:hidden" class="blackjack__table--emptydeck noselect">
                         <img src="../assets/empty_card_bundle.png" alt="emptydeck" />
                     </div>
                     <div class="blackjack__table--dealercards">

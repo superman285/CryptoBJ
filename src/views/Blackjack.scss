@@ -54,8 +54,8 @@
 
     &--emptydeck {
         position: absolute;
-        top: 20%;
-        left: 20%;
+        top: 2%;
+        left: 2%;
 
         & img {
             height: 90px;
@@ -92,7 +92,7 @@
 
     &--filldeck {
         position: absolute;
-        top: 0%;
+        top: 0;
         right: 28%;
 
         & img {
@@ -236,7 +236,10 @@
         position: absolute;
         //top set mediascreen
         top: 514px;
-        width: 100%;
+        left: 0;
+        right: 0;
+        width: 75%;
+        margin: 0 auto;
         display: flex;
         justify-content: space-evenly;
         img {
@@ -460,8 +463,6 @@
             font-weight: 700;
             border: 0 none;
             margin-right: 10px;
-            font-size: 18px;
-            font-weight: 700;
             border-radius: 5px;
             border: 1px solid #787878;
             text-transform: uppercase;
@@ -484,16 +485,16 @@
 
     //consider mediascreen
     .fate-amount-section {
+        //height: 90px;
+        //width: 280px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         padding: 10px;
         text-align: center;
-        background-color: #1a2136;
-        text-align: center;
         text-transform: uppercase;
-        //height: 90px;
-        //width: 280px;
+
+        background-color: #1a2136;
         border-radius: 5px;
         border: 1px solid #787878;
 
@@ -504,10 +505,14 @@
             display: flex;
             justify-content: center;
             align-items: center;*/
+            margin-right: .5rem;
             div {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-end;
+            }
+            h6 {
+                margin-left: .25rem;
             }
         }
 
@@ -522,13 +527,15 @@
                 flex-direction: row;
                 align-items: flex-end;
             }
+            h6 {
+                margin-left: .25rem;
+            }
         }
 
         .currency-image {
             margin-bottom: 5px;
         }
         h6 {
-            font-size: 18px;
             font-weight: 700;
         }
     }
@@ -556,7 +563,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 40px;
+        margin-top: 0px;
     }
 }
 
@@ -793,7 +800,7 @@
     }
 
     .blackjack-control-area-row3 .fate-amount-section {
-        margin-top: 20px;
+        //margin-top: 20px;
     }
 
     .blackjack__table .endgame_state {
@@ -1125,7 +1132,7 @@
     }
 
     .blackjack-control-area-row3 {
-        margin-top: 25px;
+        margin-top: 0px;
     }
 
     .blackjack-control-area-row3 .fate-amount-section {
