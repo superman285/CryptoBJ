@@ -136,12 +136,6 @@
 
                     <!--addcoin img -->
                     <div class="blackjack__table--coinsrow" v-show="!game.playerConfirmBet">
-                        <!--<button @click="gameBet('inc', 10)" :class="{ disabled: !confirmBetEnabled() }">10 TRX</button>
-                        <button @click="gameBet('inc', 50)" :class="{ disabled: !confirmBetEnabled() }">50 TRX</button>
-                        <button @click="gameBet('inc', 100)" :class="{ disabled: !confirmBetEnabled() }">100 TRX</button>
-                        <button @click="gameBet('inc', 500)" :class="{ disabled: !confirmBetEnabled() }">500 TRX</button>
-                        <button @click="gameBet('inc', 1000)" :class="{ disabled: !confirmBetEnabled() }">1000 TRX</button>
-                        <button @click="gameBet('inc', 5000)" :class="{ disabled: !confirmBetEnabled() }">5000 TRX</button>-->
                         <img src="../assets/10_coin.png"
                              alt="10coin"
                              @click="gameBet('inc',10)"

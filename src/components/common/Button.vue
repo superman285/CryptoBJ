@@ -20,8 +20,8 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-    width: 125px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
     background-color: #d80927;
     color: #fff;
     font-size: 20px;

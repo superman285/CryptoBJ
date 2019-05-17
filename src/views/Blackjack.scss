@@ -30,7 +30,7 @@
     background: #000410 url(../assets/ellipse-2.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    //background-size: cover;
     height: 600px;
     border-radius: 10px;
 
@@ -234,10 +234,14 @@
 
     &--coinsrow {
         position: absolute;
-        bottom: 10%;
+        //top set mediascreen
+        top: 514px;
         width: 100%;
         display: flex;
         justify-content: space-evenly;
+        img {
+            //width height set mediascreen
+        }
     }
 
     .blackjack__table--playercards-wrapper {
@@ -387,8 +391,9 @@
     }
 }
 
-// Blackjack Control Area
+// Blackjack Control Area normal
 .blackjack-control-area {
+    position: relative;
     margin-top: -20px;
     background-color: #000410;
     padding: 20px;
@@ -477,16 +482,18 @@
         }
     }
 
+    //consider mediascreen
     .fate-amount-section {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        padding: 10px;
         text-align: center;
         background-color: #1a2136;
         text-align: center;
         text-transform: uppercase;
-        height: 90px;
-        width: 280px;
+        //height: 90px;
+        //width: 280px;
         border-radius: 5px;
         border: 1px solid #787878;
 
@@ -534,9 +541,15 @@
     }
 
     &-row2 {
+        position: absolute;
+        //set mediascreen
+        top: -55px;
+        left: 0;
+        right: 0;
+
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
     }
 
     &-row3 {
@@ -749,6 +762,7 @@
 
     .blackjack-control-area-row2 {
         flex-direction: column;
+
     }
 
     .blackjack-input-bet input,
@@ -1116,7 +1130,7 @@
 
     .blackjack-control-area-row3 .fate-amount-section {
         height: auto;
-        padding: 10px 0 7px;
+        padding: 10px;
     }
     .blackjack-control-area-row3 .fate-amount-section .currency-image {
         height: 25px;
