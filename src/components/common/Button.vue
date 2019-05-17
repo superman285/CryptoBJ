@@ -73,10 +73,14 @@ export default {
     border-radius: 5px;
 }
 .green {
-    background-color: #157103;
-
+    // origin version
+    //background-color: #157103;
+    background: #25C51E;
+    
     &:hover {
-        background-color: #0c3f02;
+        // origin version
+        //background-color: #0c3f02;
+        background: #1b9317;
     }
 }
 
@@ -100,6 +104,7 @@ export default {
 
 .clickable {
     &:active {
+        //clickdown shadow
         box-shadow: 0 4px #bebebe;
         transform: translateY(4px);
     }

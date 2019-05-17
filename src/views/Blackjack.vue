@@ -360,7 +360,15 @@
                                 </div>
                             </div>
 
-                            <!--old 4 buttons-->
+                            <div class="recharge-section">
+                                <span class="recharge-trx-bal">{{ player.softBalance }} TRX</span>
+                                <Button class="recharge-btn"
+                                        label="recharge"
+                                        type="button big green clickable"
+                                ></Button>
+                            </div>
+
+                            <!--oldversion 4 buttonarea-->
                             <!--<div class="blackjack-deals-hit-stand-btns" v-if="game.ready">
                                 <Button type="button clickable" label="hit" @button-clicked="userAction('hit')" :class="{ disabled: !actionEnabled('hit') }">
                                 </Button>

@@ -559,11 +559,34 @@
         text-align: center;
     }
 
+    //set mediascreen
     &-row3 {
         display: flex;
-        justify-content: space-between;
+        //justify-content: space-between;
         align-items: center;
         margin-top: 0px;
+
+        .fate-amount-section .currency-image {
+            height: 25px;
+            width: auto;
+        }
+
+        .recharge-section {
+            margin-left: 10vw;
+            .recharge-trx-bal {
+                margin-right: 1rem;
+                font-weight: 700;
+                font-size: 18px;
+                color: #DD0828;
+            }
+           button.recharge-btn {
+                font-size: 16px!important;
+                width: 130px!important;
+                height: 40px!important;
+                margin-bottom: 0px !important
+            }
+
+        }
     }
 }
 
@@ -763,12 +786,11 @@
     }
 
     .blackjack-control-area {
-        display: flex;
+        //display: flex;
     }
 
     .blackjack-control-area-row2 {
         flex-direction: column;
-
     }
 
     .blackjack-input-bet input,
@@ -789,7 +811,7 @@
     }
 
     .blackjack-control-area-row3 {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .blackjack .bet-action-btns-section .button,
@@ -1034,6 +1056,7 @@
 
     .blackjack-control-area-row3 {
         margin-top: 0;
+        flex-direction: row;
     }
 
     .container {
@@ -1089,9 +1112,7 @@
         width: 300px;
     }
 
-    .blackjack-control-area-row3 {
-        flex-direction: column-reverse;
-    }
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -1138,10 +1159,10 @@
         height: auto;
         padding: 10px;
     }
-    .blackjack-control-area-row3 .fate-amount-section .currency-image {
+    /*.blackjack-control-area-row3 .fate-amount-section .currency-image {
         height: 25px;
         width: auto;
-    }
+    }*/
     .blackjack-control-area-row3 .fate-amount-section h6 {
         font-size: 16px;
     }
