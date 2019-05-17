@@ -14,7 +14,6 @@
         position: relative;
         z-index: 30;
         margin: 0 auto;
-
         .coin-image {
             width: 100%;
             position: absolute;
@@ -31,9 +30,9 @@
 
     .hand-bet-total {
         position: absolute;
-        left: -15px;
+        left: -20px;
         bottom: -22px;
-        width: 200%;
+        width: 220%;
         font-size: 16px;
         line-height: 18px;
         font-weight: 700;

@@ -20,6 +20,7 @@
 .default-controls {
     display: block;
 }
+
 .mobile-controls {
     display: none;
 }
@@ -130,7 +131,7 @@
 
     &--playercards {
         position: absolute;
-        top: 47%;
+        top: 52%;
         width: 100px;
         left: 0;
         right: 0;
@@ -267,11 +268,9 @@
         position: absolute;
         width: 100px;
 
-
         //betting
         right: -35vw;
-        top: 50px;
-        transition: all 1s ease-out;
+        top: 0;
 
         //after betted
         &.betted {
@@ -283,6 +282,7 @@
             width: 100px;
             margin-top: 30px;
         }
+        transition: all 1s ease-out;
     }
 
     .endgame_state {
@@ -304,6 +304,27 @@
         &.endgame_state_loss {
         }
     }
+
+
+    .confirm-btn,.cancel-btn {
+        width: 42px;
+        height: 42px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        &:active{
+            transition: .2s;
+            transform: translateY(2px);
+        }
+    }
+    .confirm-btn {
+        background: url("../assets/confirm.png");
+    }
+    .cancel-btn {
+        background: url("../assets/cancel.png");
+        margin-right: .5rem;
+    }
+
 }
 
 .blackjack-total-bet-container {
@@ -373,7 +394,6 @@
         text-transform: uppercase;
         transition: 0.3s;
         white-space: nowrap;
-
         height: 50px;
         padding: 0 10px;
 

@@ -3,16 +3,17 @@
         <div class="container">
             <div class="blackjack__content">
                 <div class="blackjack__table">
-                    <!--<div v-if="cheats.enabled" class="cheats">-->
-                        <!--<button class="cheats-title" @click="cheats.visible = !cheats.visible">-->
-                            <!--#CHEATS-->
-                            <!--<small>Click to toggle visiblity</small>-->
-                        <!--</button>-->
-                        <!--{{/* eslint-disable */}}-->
-                        <!--<button v-if="cheats.visible" v-for="(option, index) in cheats.options" @click="triggerCheats(option)" :key="index">-->
-                            <!--{{ option.text }}-->
-                        <!--</button>-->
-                    <!--</div>-->
+                    <!--cheats-->
+                    <!--<div v-if="cheats.enabled" class="cheats">
+                        <button class="cheats-title" @click="cheats.visible = !cheats.visible">
+                            #CHEATS
+                            <small>Click to toggle visiblity</small>
+                        </button>
+                        {{/* eslint-disable */}}
+                        <button v-if="cheats.visible" v-for="(option, index) in cheats.options" @click="triggerCheats(option)" :key="index">
+                            {{ option.text }}
+                        </button>
+                    </div>-->
 
                     <div v-if="soundsEnabled" class="audio_icon" :class="{ muted: muted }" @click="toggleMute()">
                         <img src="../assets/btn_audio.png" />
@@ -20,7 +21,6 @@
 
                     <div class="blackjack__table--cointray noselect">
                         <!--<img src="../assets/coin_plate.png" alt="coin plate" />-->
-
                         <div class="hidden-dealer-coins">
                             <CoinsDealer v-bind:dealerPays="game.dealerPays"></CoinsDealer>
                         </div>
@@ -35,7 +35,6 @@
                             </div>
 
                             <!--    DEALER CARDS   -->
-
                             <Cards
                                 v-bind:cards="game.state.dealerCards"
                                 v-bind:state="game.state"
@@ -69,19 +68,6 @@
 
                                 <div class="blackjack__table--playerbetcoins" v-show="game.ready && game.hands > 1 && handHasCards('left')" :class="{betted: game.playerConfirmBet}">
                                     <Coins v-bind:game="game" v-bind:side="`left`" v-bind:calcCoinValue="currentBetAmountPerGroupOfChips"></Coins>
-
-                                    <!--confirm cancel button-->
-                                    <div class="confirm-area" v-show="game.prepBet && !game.playerConfirmBet">
-                                        <img src="../assets/cancel.png"
-                                             alt="cancelbtn"
-                                             @click="clearCoins()"
-                                        >
-                                        <img src="../assets/confirm.png"
-                                             alt="confirmbtn"
-                                             @click="gameBet('confirm')"
-                                        >
-                                    </div>
-
                                 </div>
                             </div>
 
@@ -92,7 +78,6 @@
                                     </div>
 
                                     <!--    PLAYER CARDS ON RIGHT   -->
-
                                     <Cards
                                         v-bind:cards="game.state.handInfo.right.cards"
                                         v-bind:state="game.state"
@@ -103,16 +88,16 @@
 
                                 <div class="blackjack__table--playerbetcoins" :class="{betted: game.playerConfirmBet}">
                                     <Coins v-bind:game="game" v-bind:side="`right`" v-bind:calcCoinValue="currentBetAmountPerGroupOfChips"></Coins>
-                                    <!--confirm cancel button-->
+                                    <!--confirm cancel button righthand-->
                                     <div class="confirm-area" v-show="game.prepBet && !game.playerConfirmBet">
-                                        <img src="../assets/cancel.png"
-                                             alt="cancelbtn"
-                                             @click="clearCoins()"
+                                        <button class="cancel-btn"
+                                                @click="clearCoins()"
                                         >
-                                        <img src="../assets/confirm.png"
-                                             alt="confirmbtn"
-                                             @click="gameBet('confirm')"
+                                        </button>
+                                        <button class="confirm-btn"
+                                                @click="gameBet('confirm')"
                                         >
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -121,18 +106,6 @@
 
                     </div>
 
-
-                    <!--confirm cancel button-->
-                    <!--<div class="confirm-area" v-show="game.prepBet && !game.playerConfirmBet">
-                        <img src="../assets/cancel.png"
-                             alt="cancelbtn"
-                             @click="clearCoins()"
-                        >
-                        <img src="../assets/confirm.png"
-                             alt="confirmbtn"
-                             @click="gameBet('confirm')"
-                        >
-                    </div>-->
 
                     <!--addcoin img -->
                     <div class="blackjack__table--coinsrow" v-show="!game.playerConfirmBet">
