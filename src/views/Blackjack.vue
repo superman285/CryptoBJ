@@ -138,23 +138,26 @@
 
                     <!--end game popup-->
                     <transition name="endgame_state">
-                        <div class="endgame_state endgame_state_tie" v-if="game.currentAction == 'tie'">
-                            <span>It's a tie.</span>
+                        <div class="endgameModal endgame_state endgame_state_tie" v-if="game.currentAction == 'tie'">
+                            <span class="tie_color">It's a tie.</span>
                         </div>
                     </transition>
 
                     <transition name="endgame_state">
-                        <div class="endgame_state endgame_state_win" v-if="game.currentAction == 'win'">
-                            <span v-if="game.lastWin > 0">You won {{ game.lastWin }} coins!</span>
-                            <span v-else>You have won!</span>
+                        <div class="endgameModal endgame_state endgame_state_win" v-if="game.currentAction == 'win'">
+                            <span class="win_color" v-if="game.lastWin > 0">You won {{ game.lastWin }} coins!</span>
+                            <span class="win_color" v-else>You have won!</span>
                         </div>
                     </transition>
 
+
+
                     <transition name="endgame_state">
-                        <div class="endgame_state endgame_state_loss" v-if="game.currentAction == 'loss'">
-                            <span>You lost.</span>
+                        <div class="endgameModal endgame_state endgame_state_loss" v-if="game.currentAction == 'loss'">
+                            <span class="loss_color">You lost.</span>
                         </div>
                     </transition>
+
                 </div>
 
 

@@ -82,7 +82,9 @@ export default {
           let x = 0;
           let y = 200;
 
+          /* eslint-disable */
           const timeline = new TimelineLite();
+          /* eslint-enable */
 
           timeline.set(el,{
               x: x,
@@ -139,7 +141,9 @@ export default {
               x = 0;
           }
 
+          /* eslint-disable */
           const timeline = new TimelineLite();
+          /* eslint-enable */
 
           timeline.to(el, animationSpeed, {
               x: x,

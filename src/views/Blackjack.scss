@@ -295,7 +295,7 @@
         left: 0;
         right: 0;
         z-index: 499;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        /*background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));*/
 
         &.endgame_state_tie {
         }
@@ -664,6 +664,7 @@
     }
 }
 
+
 .blackjack {
     /*disabled button also changes its appearance*/
     .button.disabled {
@@ -690,6 +691,28 @@
 .reveal-card-leave-to {
 }
 
+.endgameModal {
+    padding: 1rem;
+    text-align: center;
+    //set mediascreen
+    width: 60%!important;
+    margin: 0 auto;
+    border-radius: 4rem;
+    background: #EEFFED;
+    span {
+        font-size: 25px;
+        font-weight: 700;
+        @media (max-width: 767.98px) {
+            font-size: 15px;
+        }
+        &.win_color,&.tie_color{
+            color: #1AB512;
+        }
+        &.loss_color{
+            color: #DD0828;
+        }
+    }
+}
 .endgame_state {
     span {
         transition: all 0.7s;

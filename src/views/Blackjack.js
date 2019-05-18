@@ -5,6 +5,7 @@ import Button from '../components/common/Button';
 import Cards from '../components/blackjack/Cards';
 import Coins from '../components/blackjack/Coins';
 import CoinsDealer from '../components/blackjack/CoinsDealer';
+import Modal from '../components/common/Modal';
 import io from 'socket.io-client';
 import * as constants from '../constants.js';
 import { TimelineLite } from 'gsap'; //  eslint-disable-line no-unused-vars
@@ -16,6 +17,7 @@ import { mapActions, mapGetters, mapState } from 'vuex';
 let ENABLED_COINS = [10, 50, 100, 500,1000,5000];
 
 let errorNotification = msg => {
+    //TODO: change with toast
     alert(msg); // you may want to change this to something nicer
 };
 
@@ -26,6 +28,7 @@ export default {
         Cards,
         Coins,
         CoinsDealer,
+        Modal
     },
     data() {
         return {
