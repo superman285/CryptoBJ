@@ -227,12 +227,6 @@
 
     }
 
-    /*.confirm-area {
-        position: absolute;
-        right: 60px;
-        top: 70%;
-    }*/
-
     &--coinsrow {
         position: absolute;
         //top set mediascreen
@@ -243,10 +237,6 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-evenly;
-        img {
-            //width height set mediascreen
-
-        }
         .coinbtn {
             width: 64px;
             height: 64px;
@@ -306,13 +296,34 @@
         &.betted {
             right: 0;
             top: 110px;
+            transition: all 1s ease-out;
         }
 
         .confirm-area {
             width: 100px;
             margin-top: 30px;
         }
-        transition: all 1s ease-out;
+
+    }
+    .confirm-btn,.cancel-btn {
+        width: 42px;
+        height: 42px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        &:active{
+            transition: .2s;
+            transform: translateY(2px);
+        }
+    }
+    .confirm-btn {
+        background: url("../assets/confirm.png");
+        background-size: cover;
+    }
+    .cancel-btn {
+        background: url("../assets/cancel.png");
+        background-size: cover;
+        margin-right: .5rem;
     }
 
     .endgame_state {
@@ -336,24 +347,7 @@
     }
 
 
-    .confirm-btn,.cancel-btn {
-        width: 42px;
-        height: 42px;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        &:active{
-            transition: .2s;
-            transform: translateY(2px);
-        }
-    }
-    .confirm-btn {
-        background: url("../assets/confirm.png");
-    }
-    .cancel-btn {
-        background: url("../assets/cancel.png");
-        margin-right: .5rem;
-    }
+
 
 }
 
@@ -921,9 +915,19 @@
     }
 
     .blackjack__table--playerbetcoins {
-        top: 95px;
+        top: 50px;
         width: 80px;
+
+        .confirm-btn,.cancel-btn {
+            width: 36px;
+            height: 36px;
+        }
+        .cancel-btn {
+            margin-right: 6px;
+        }
     }
+
+
 
     .blackjack-control-area .button {
         margin-right: 10px;
@@ -1115,11 +1119,28 @@
     }
 }
 
+@media (max-width: 575.98px) {
+    .blackjack__table--playerbetcoins {
+        width: 100px;
+        .confirm-btn, .cancel-btn {
+            width: 32px;
+            height: 32px;
+        }
+        .cancel-btn {
+            margin-right: 3px;
+        }
+
+    }
+}
+
 @media (min-width: 576px) and (max-width: 767.98px) {
     .blackjack .bet-action-btns-section .button,
     .blackjack .blackjack-deals-hit-stand-btns .button {
         flex: 0 34%;
         min-width: 140px;
+    }
+    .blackjack__table--playerbetcoins {
+        width: 85px;
     }
 }
 
@@ -1183,7 +1204,7 @@
     }
 
     .blackjack__table--playerbetcoins {
-        width: 60px;
+        width: 85px;
         height: 85px;
     }
 

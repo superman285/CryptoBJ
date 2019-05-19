@@ -25,7 +25,7 @@
       <!--<transition name="coins-total">-->
         <div class="hand-bet-total"
              v-show="totalBetVisible && game.betHistory.length > 0">
-          {{ calcCoinValue() }} TRX
+          {{ calcCoinValue() }}TRX
         </div>
       <!--</transition>-->
 

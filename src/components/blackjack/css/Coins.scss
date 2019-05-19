@@ -48,13 +48,13 @@
         height: 36px;
         .player-coins,
         .dealer-coins {
-            width: 32px;
+            //width: 32px;
             .coin-image {
-                width: 32px;
+                width: 36px;
             }
         }
         .hand-bet-total {
-            font-size: 16px;
+            font-size: 15px;
         }
     }
 }
@@ -65,13 +65,13 @@
         height: 32px;
         .player-coins,
         .dealer-coins {
-            width: 26px;
+            //width: 26px;
             .coin-image {
-                width: 26px;
+                width: 32px;
             }
         }
         .hand-bet-total {
-            font-size: 14px;
+            font-size: 13px;
         }
     }
 }
