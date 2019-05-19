@@ -245,7 +245,37 @@
         justify-content: space-evenly;
         img {
             //width height set mediascreen
+
         }
+        .coinbtn {
+            width: 64px;
+            height: 64px;
+            outline: none;
+            border: none;
+            transition: .3s;
+            &:active {
+                transform: scale(.95);
+            }
+            &10{
+                background: url("../assets/10_coin.png");
+            }
+            &50{
+                background: url("../assets/50_coin.png");
+            }
+            &100{
+                background: url("../assets/100_coin.png");
+            }
+            &500{
+                background: url("../assets/500_coin.png");
+            }
+            &1000{
+                background: url("../assets/1000_coin.png");
+            }
+            &5000{
+                background: url("../assets/5000_coin.png");
+            }
+        }
+
     }
 
     .blackjack__table--playercards-wrapper {
@@ -326,6 +356,7 @@
     }
 
 }
+
 
 .blackjack-total-bet-container {
     position: absolute;
@@ -530,6 +561,7 @@
                 align-items: flex-end;
             }
             h6 {
+                font-family:  "Courier","Courier New";
                 margin-left: .25rem;
             }
         }
@@ -546,6 +578,7 @@
                 align-items: flex-end;
             }
             h6 {
+                font-family: "Courier","Courier New";
                 margin-left: .25rem;
             }
         }
@@ -593,8 +626,9 @@
             margin-left: 10vw;
             .recharge-trx-bal {
                 margin-right: 1rem;
-                font-weight: 700;
-                font-size: 18px;
+                font: 700 18px "Lucida Grande","Courier","Courier New";
+                /*font-weight: 700;
+                font-size: 18px;*/
                 color: #DD0828;
             }
            button.recharge-btn {

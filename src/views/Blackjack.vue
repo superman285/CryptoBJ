@@ -108,32 +108,24 @@
 
                     <!--addcoin img -->
                     <div class="blackjack__table--coinsrow" v-show="!game.playerConfirmBet">
-                        <img src="../assets/10_coin.png"
-                             alt="10coin"
-                             @click="gameBet('inc',10)"
-                        >
-                        <img src="../assets/50_coin.png"
-                             alt="10coin"
-                             @click="gameBet('inc',50)"
-                        >
-                        <img src="../assets/100_coin.png"
-                             alt="10coin"
-                             @click="gameBet('inc',100)"
-                        >
-                        <img src="../assets/500_coin.png"
-                             alt="10coin"
-                             @click="gameBet('inc',500)"
-                        >
-                        <img src="../assets/1000_coin.png"
-                             alt="10coin"
-                             @click="gameBet('inc',1000)"
-                        >
-                        <img src="../assets/5000_coin.png"
-                             alt="10coin"
-                             @click="gameBet('inc',5000)"
-                        >
-
-
+                        <button class="coinbtn coinbtn10"
+                                @click="gameBet('inc',10)"
+                        ></button>
+                        <button class="coinbtn coinbtn50"
+                                @click="gameBet('inc',50)"
+                        ></button>
+                        <button class="coinbtn coinbtn100"
+                                @click="gameBet('inc',100)"
+                        ></button>
+                        <button class="coinbtn coinbtn500"
+                                @click="gameBet('inc',500)"
+                        ></button>
+                        <button class="coinbtn coinbtn1000"
+                                @click="gameBet('inc',1000)"
+                        ></button>
+                        <button class="coinbtn coinbtn5000"
+                                @click="gameBet('inc',5000)"
+                        ></button>
                     </div>
 
                     <!--end game popup-->

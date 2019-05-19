@@ -10,14 +10,16 @@
             v-on:leave="onLeaveTransition"
             :duration="{leave: 1000}"
       >-->
-        <img v-for="(coin,index) in game.betHistory"
-             v-if="game.betHistory.length > 0 && index <= 2"
+        <template v-for="(coin,index) in game.betHistory">
+        <img v-if="game.betHistory.length > 0 && index <= 2"
              v-show="coin.show"
              :key="index"
              v-bind:data-index="index"
              :class="`coin-image coin-index-${index}`"
              :src="getCoinImage(coin.value)"
+             class="animated fadeInDown faster"
         />
+        </template>
       <!--</transition-group>-->
 
       <!--<transition name="coins-total">-->

@@ -333,6 +333,8 @@ export default {
                 return;
             }
 
+            //TODO: play add coin sound
+            //this.$emit('sound:shuffle');
             this.game.betHistory.push({ value: amount, show: true });
             this.orderBetHistory();
 
