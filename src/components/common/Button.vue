@@ -48,6 +48,8 @@ export default {
     }
 }
 
+
+
 .fate-btn {
     height: 36px;
     font-size: 15px;

@@ -908,7 +908,7 @@
     }
 
     .blackjack__table {
-        height: 520px;
+        height: 560px;
         .endgame_state {
             top: 35%;
             font-size: 40px;
@@ -917,11 +917,11 @@
 
     .blackjack__table--coinsrow {
         //top set mediascreen
-        top: 472px;
+        top: 500px;
         width: 80%;
         .coinbtn {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             background-size: cover;
         }
     }
@@ -967,6 +967,21 @@
 
     .blackjack-control-area-row1 {
         height: auto;
+    }
+    .blackjack-control-area-row2 {
+        top: -61px;
+        .blackjack-deals-hit-stand-btns {
+            width: 90%;
+            margin: 0 auto;
+            .button.clickable {
+                flex: 30%;
+                min-width: 80px;
+                height: 25px;
+                font-size: 12px;
+                margin-top: -3px;
+            }
+
+        }
     }
     .blackjack-control-area-row3 {
         display: flex;
@@ -1063,11 +1078,11 @@
 
     .blackjack__table--coinsrow {
         //top set mediascreen
-        top: 475px;
+        top: 498px;
         width: 90%;
         .coinbtn {
-            width: 42px;
-            height: 42px;
+            width: 50px;
+            height: 50px;
             background-size: cover;
         }
     }
@@ -1103,8 +1118,31 @@
         height: 60px;
     }
 
+    /*.blackjack .button.clickable {
+        font-size: 15px;
+        min-width: inherit;
+        height: 40px;
+    }*/
+    /*.blackjack .button.clickable {
+       flex: 0 46%;
+   }*/
     .blackjack-control-area-row1 {
         margin-bottom: 5px;
+    }
+    .blackjack-control-area-row2 {
+        top: -61px;
+        .blackjack-deals-hit-stand-btns {
+            width: 90%;
+            margin: 0 auto;
+            .button.clickable {
+                flex: 30%;
+                min-width: 80px;
+                height: 25px;
+                font-size: 12px;
+                margin-top: -3px;
+            }
+
+        }
     }
     .blackjack-control-area-row3 {
 
@@ -1115,8 +1153,7 @@
     }
 
     .blackjack-input-bet input,
-    .blackjack-input-bet button .blackjack-control-area .bet-btns-section button,
-    .blackjack .button.clickable {
+    .blackjack-input-bet button .blackjack-control-area .bet-btns-section button{
         font-size: 15px;
         min-width: inherit;
         height: 40px;
@@ -1124,9 +1161,7 @@
     .blackjack-input-bet input {
         height: 42px;
     }
-    .blackjack .button.clickable {
-        flex: 0 46%;
-    }
+
     .blackjack-deals-hit-stand-btns {
         //margin-bottom: 15px;
         margin-bottom: 0;
@@ -1150,12 +1185,13 @@
         right: 5%;
     }
 
+
     .blackjack__table--coinsrow {
-        top: 476px;
+        top: 500px;
         width: 100%;
         .coinbtn {
-            width: 38px;
-            height: 38px;
+            width: 48px;
+            height: 48px;
             background-size: cover;
         }
     }
