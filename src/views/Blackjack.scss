@@ -124,7 +124,7 @@
         color: white;
         font-size: 16px;
         text-align: center;
-        width: 35px!important;
+        width: 35px !important;
         border-radius: 35px;
         background: darkslategrey;
     }
@@ -247,22 +247,22 @@
             &:active {
                 transform: scale(.95);
             }
-            &10{
+            &10 {
                 background: url("../assets/10_coin.png");
             }
-            &50{
+            &50 {
                 background: url("../assets/50_coin.png");
             }
-            &100{
+            &100 {
                 background: url("../assets/100_coin.png");
             }
-            &500{
+            &500 {
                 background: url("../assets/500_coin.png");
             }
-            &1000{
+            &1000 {
                 background: url("../assets/1000_coin.png");
             }
-            &5000{
+            &5000 {
                 background: url("../assets/5000_coin.png");
             }
         }
@@ -295,7 +295,7 @@
 
         //after betted
         &.betted {
-            right: 0;
+            right: 20px;
             top: 110px;
             transition: all 1s ease-out;
         }
@@ -306,13 +306,13 @@
         }
 
     }
-    .confirm-btn,.cancel-btn {
+    .confirm-btn, .cancel-btn {
         width: 42px;
         height: 42px;
         outline: none;
         border: none;
         cursor: pointer;
-        &:active{
+        &:active {
             transition: .2s;
             transform: translateY(2px);
         }
@@ -347,11 +347,7 @@
         }
     }
 
-
-
-
 }
-
 
 .blackjack-total-bet-container {
     position: absolute;
@@ -556,7 +552,7 @@
                 align-items: flex-end;
             }
             h6 {
-                font-family:  "Courier","Courier New";
+                font-family: "Courier", "Courier New";
                 margin-left: .25rem;
             }
         }
@@ -573,7 +569,7 @@
                 align-items: flex-end;
             }
             h6 {
-                font-family: "Courier","Courier New";
+                font-family: "Courier", "Courier New";
                 margin-left: .25rem;
             }
         }
@@ -621,15 +617,15 @@
             margin-left: 10vw;
             .recharge-trx-bal {
                 margin-right: 1rem;
-                font: 700 18px "Lucida Grande","Courier","Courier New";
+                font: 700 18px "Lucida Grande", "Courier", "Courier New";
                 /*font-weight: 700;
                 font-size: 18px;*/
                 color: #DD0828;
             }
-           button.recharge-btn {
-                font-size: 16px!important;
-                width: 130px!important;
-                height: 40px!important;
+            button.recharge-btn {
+                font-size: 16px !important;
+                width: 130px !important;
+                height: 40px !important;
                 margin-bottom: 0px !important
             }
 
@@ -693,7 +689,6 @@
     }
 }
 
-
 .blackjack {
     /*disabled button also changes its appearance*/
     .button.disabled {
@@ -713,9 +708,11 @@
 
 .reveal-card {
 }
+
 .reveal-card-enter-active,
 .reveal-card-leave-active {
 }
+
 .reveal-card-enter,
 .reveal-card-leave-to {
 }
@@ -724,7 +721,7 @@
     padding: 1rem;
     text-align: center;
     //set mediascreen
-    width: 60%!important;
+    width: 60% !important;
     margin: 0 auto;
     border-radius: 4rem;
     background: #EEFFED;
@@ -734,14 +731,15 @@
         @media (max-width: 767.98px) {
             font-size: 15px;
         }
-        &.win_color,&.tie_color{
+        &.win_color, &.tie_color {
             color: #1AB512;
         }
-        &.loss_color{
+        &.loss_color {
             color: #DD0828;
         }
     }
 }
+
 .endgame_state {
     span {
         transition: all 0.7s;
@@ -757,6 +755,7 @@
         transform: translateX(200px) skewX(-30deg);
     }
 }
+
 .endgame_state-enter,
 .endgame_state-leave-to {
     transition: all 0s;
@@ -883,6 +882,12 @@
     .blackjack-control-area-row3 {
         flex-direction: row;
     }
+    .blackjack__table--playerbetcoins {
+        //after betted
+        &.betted {
+            right: 0px;
+        }
+    }
 
     .blackjack .bet-action-btns-section .button,
     .blackjack .blackjack-deals-hit-stand-btns .button {
@@ -929,8 +934,12 @@
     .blackjack__table--playerbetcoins {
         top: 50px;
         width: 80px;
+        //after betted
+        &.betted {
+            right: 16px;
+        }
 
-        .confirm-btn,.cancel-btn {
+        .confirm-btn, .cancel-btn {
             width: 36px;
             height: 36px;
         }
@@ -938,8 +947,6 @@
             margin-right: 6px;
         }
     }
-
-
 
     .blackjack-control-area .button {
         margin-right: 10px;
@@ -990,7 +997,7 @@
             display: flex;
             flex-direction: column;
             padding: 7px 10px 4px;
-            .trx-card,.fate-card {
+            .trx-card, .fate-card {
                 margin-top: 3px;
                 div {
                     align-items: center;
@@ -1002,8 +1009,8 @@
             margin-left: 12%;
             button.recharge-btn {
                 padding: 3px 15px;
-                font-size: 14px!important;
-                width: auto!important;
+                font-size: 14px !important;
+                width: auto !important;
             }
         }
     }
@@ -1092,6 +1099,10 @@
 
     .blackjack__table--playerbetcoins {
         width: 100px;
+        //after betted
+        &.betted {
+            right: 5px;
+        }
         .confirm-btn, .cancel-btn {
             width: 32px;
             height: 32px;
@@ -1107,7 +1118,7 @@
         flex-wrap: nowrap;
         .fate-amount-section {
             min-width: 148px;
-            .trx-card,.fate-card {
+            .trx-card, .fate-card {
                 div {
                     align-items: center;
                 }
@@ -1119,13 +1130,12 @@
             align-items: center;
             button.recharge-btn {
                 min-width: 80px;
-                height: 35px!important;
+                height: 35px !important;
                 padding: 3px 15px;
-                font-size: 13px!important;
+                font-size: 13px !important;
             }
         }
     }
-
 
 }
 
@@ -1145,6 +1155,9 @@
     .blackjack__table--filldeck img {
         width: 110px;
         height: 60px;
+    }
+    .blackjack__table--playercards {
+        top: 55%;
     }
 
     /*.blackjack .button.clickable {
@@ -1183,7 +1196,7 @@
         .fate-amount-section {
             min-width: 135px;
             padding: 0px;
-            .trx-card,.fate-card {
+            .trx-card, .fate-card {
                 div {
                     align-items: center;
                     h6 {
@@ -1204,8 +1217,8 @@
             button.recharge-btn {
                 min-width: 50px;
                 padding: 0 7px;
-                height: 30px!important;
-                font-size: 13px!important;
+                height: 30px !important;
+                font-size: 13px !important;
             }
         }
     }
@@ -1215,7 +1228,7 @@
     }
 
     .blackjack-input-bet input,
-    .blackjack-input-bet button .blackjack-control-area .bet-btns-section button{
+    .blackjack-input-bet button .blackjack-control-area .bet-btns-section button {
         font-size: 15px;
         min-width: inherit;
         height: 40px;
@@ -1247,7 +1260,6 @@
         right: 5%;
     }
 
-
     .blackjack__table--coinsrow {
         top: 500px;
         width: 100%;
@@ -1264,9 +1276,10 @@
     .blackjack__table--playerbetcoins {
         width: 85px;
         top: 75px;
+        &.betted {
+            right: -5px;
+        }
     }
-
-
 
     .blackjack__table--playercards-wrapper,
     .blackjack__table--dealercards,
@@ -1332,7 +1345,7 @@
     }
 
     .blackjack .blackjack-deals-hit-stand-btns .button {
-        width: 100px!important;
+        width: 100px !important;
     }
 
     .blackjack__table--playercards-wrapper,
@@ -1380,7 +1393,6 @@
         width: 300px;
     }
 
-
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -1423,6 +1435,13 @@
         margin-top: 0px;
     }
 
+    .blackjack__table--playerbetcoins {
+        //after betted
+        &.betted {
+            right: 6px;
+        }
+    }
+
     .blackjack-control-area-row3 .fate-amount-section {
         height: auto;
         padding: 10px;
@@ -1446,7 +1465,12 @@
 }
 
 @media (min-width: 1200px) {
+
     .blackjack__table--playerbetcoins {
         right: -500px;
+        //after betted
+        &.betted {
+            right: 6px;
+        }
     }
 }

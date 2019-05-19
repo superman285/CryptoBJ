@@ -1,12 +1,12 @@
 .coins-holder {
     position: relative;
-    margin-left: auto;
+    margin-left: -30px;
     margin-right: auto;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     width: 100%;
-    //width: 166px;
+    width: 166px;
     height: 45px;
 
     .player-coins,
@@ -39,14 +39,14 @@
         font-weight: 700;
         color: #1AB512;
         //color: white;
-        /*background: linear-gradient(90deg, rgba(0, 200, 200, 0.3) 0%, rgba(1, 1, 20, 0.8) 20%, rgba(1, 1, 20, 0.8) 80%, rgba(0, 212, 255, 0.3) 100%);*/
+        background: linear-gradient(90deg, rgba(36, 98, 136, 1) 0%, rgba(1, 1, 20, 0.8) 45%, rgba(1, 1, 20, 0.8) 55%, rgba(36, 98, 136, 1) 100%);
     }
 }
 
 @media (max-width: 767.98px) {
     .coins-holder {
         width: 60px;
-        //width: 150px;
+        width: 156px;
         height: 36px;
         .player-coins,
         .dealer-coins {
@@ -57,7 +57,7 @@
         }
         .hand-bet-total {
             font-size: 15px;
-            background: linear-gradient(90deg, rgba(36, 98, 136, 1) 0%, rgba(1, 1, 20, 0.8) 45%, rgba(1, 1, 20, 0.8) 55%, rgba(36, 98, 136, 1) 100%);;
+
         }
     }
 }
@@ -65,7 +65,7 @@
 @media (max-width: 575.98px) {
     .coins-holder {
         width: 50px;
-        //width: 150px;
+        width: 154px;
         height: 32px;
         .player-coins,
         .dealer-coins {
