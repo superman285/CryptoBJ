@@ -1115,9 +1115,9 @@
         right: 7px;
     }
 
-    .blackjack__table {
-        height: 440px;
-    }
+    /*.blackjack__table {
+        //height: 440px;
+    }*/
 
     .blackjack__table--emptydeck {
         left: 5%;
@@ -1126,11 +1126,21 @@
         right: 5%;
     }
 
+    .blackjack__table--coinsrow {
+        top: 476px;
+        width: 100%;
+        .coinbtn {
+            width: 38px;
+            height: 38px;
+            background-size: cover;
+        }
+    }
+
     .blackjack__table--playercards {
         width: 80px;
     }
     .blackjack__table--playerbetcoins {
-        width: 75px;
+        width: 85px;
         top: 75px;
     }
 
