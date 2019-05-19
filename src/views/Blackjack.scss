@@ -33,7 +33,7 @@
     background-repeat: no-repeat;
     //background-size: cover;
     height: 600px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 
     &--cointray {
         display: flex;
@@ -243,6 +243,7 @@
             outline: none;
             border: none;
             transition: .3s;
+            background-size: cover;
             &:active {
                 transform: scale(.95);
             }
@@ -444,7 +445,7 @@
     background-color: #000410;
     padding: 20px;
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 
     .total-bet-amt-card {
         background-color: #1a2136;
@@ -914,6 +915,17 @@
         }
     }
 
+    .blackjack__table--coinsrow {
+        //top set mediascreen
+        top: 472px;
+        width: 80%;
+        .coinbtn {
+            width: 48px;
+            height: 48px;
+            background-size: cover;
+        }
+    }
+
     .blackjack__table--playerbetcoins {
         top: 50px;
         width: 80px;
@@ -1026,6 +1038,32 @@
     }
 }
 
+@media (max-width: 575.98px) {
+
+    .blackjack__table--coinsrow {
+        //top set mediascreen
+        top: 475px;
+        width: 90%;
+        .coinbtn {
+            width: 42px;
+            height: 42px;
+            background-size: cover;
+        }
+    }
+
+    .blackjack__table--playerbetcoins {
+        width: 100px;
+        .confirm-btn, .cancel-btn {
+            width: 32px;
+            height: 32px;
+        }
+        .cancel-btn {
+            margin-right: 3px;
+        }
+
+    }
+}
+
 @media (max-width: 420px) {
     .container {
         max-width: calc(100% - 0px);
@@ -1119,19 +1157,7 @@
     }
 }
 
-@media (max-width: 575.98px) {
-    .blackjack__table--playerbetcoins {
-        width: 100px;
-        .confirm-btn, .cancel-btn {
-            width: 32px;
-            height: 32px;
-        }
-        .cancel-btn {
-            margin-right: 3px;
-        }
 
-    }
-}
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     .blackjack .bet-action-btns-section .button,

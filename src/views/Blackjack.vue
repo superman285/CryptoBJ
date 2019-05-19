@@ -106,7 +106,7 @@
 
                     </div>
 
-                    <!--addcoin img -->
+                    <!--addcoin -->
                     <div class="blackjack__table--coinsrow" v-show="!game.playerConfirmBet">
                         <button class="coinbtn coinbtn10"
                                 @click="gameBet('inc',10)"
@@ -142,20 +142,16 @@
                         </div>
                     </transition>
 
-
-
                     <transition name="endgame_state">
                         <div class="endgameModal endgame_state endgame_state_loss" v-if="game.currentAction == 'loss'">
                             <span class="loss_color">You lost.</span>
                         </div>
                     </transition>
-
                 </div>
 
 
                 <div class="blackjack-control-area">
                     <!--MOBILE GAME CONTROLS-->
-
                     <div class="mobile-controls">
                         <!--<div class="blackjack-control-area-row1">
                             <div class="blackjack-input-bet">
@@ -165,8 +161,8 @@
                                 <button @click="gameBet('half')">1/2</button>
                             </div>
                         </div>-->
-                        <div class="blackjack-control-area-row2">
-                            <div class="bet-action-btns-section">
+                        <div class="blackjack-control-area-row2" v-show="game.playerConfirmBet">
+                            <!--<div class="bet-action-btns-section">
                                 <Button
                                     type="button big green clickable"
                                     label="repeat"
@@ -179,9 +175,11 @@
                                     @button-clicked="gameBet('confirm')"
                                     :class="{ disabled: !confirmBetEnabled() }"
                                 ></Button>
-                            </div>
-
+                            </div>-->
                             <div class="blackjack-deals-hit-stand-btns" v-if="game.ready">
+                                <Button type="button clickable" label="draw" @button-clicked="drawMethod()">
+                                    <!--:class="{ disabled: !actionEnabled('draw') }"-->
+                                </Button>
                                 <Button type="button clickable" label="hit" @button-clicked="userAction('hit')" :class="{ disabled: !actionEnabled('hit') }">
                                 </Button>
 
@@ -227,10 +225,19 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="recharge-section">
+                                <span class="recharge-trx-bal">{{ player.softBalance }} TRX</span>
+                                <Button class="recharge-btn"
+                                        label="recharge"
+                                        type="button big green clickable"
+                                ></Button>
+                            </div>
+
                         </div>
                     </div>
 
-
+                    <!--DEFAULT CONTROLS-->
                     <div class="default-controls">
                         <!--<div class="blackjack-control-area-row1">
                             <div class="blackjack-total-bet-container">
@@ -257,7 +264,6 @@
                                 <button @click="gameBet('min')">min</button>
                                 <button @click="gameBet('max')">max</button>
                             </div>-->
-
                             <!--<div class="bet-action-btns-section">
                                 <Button
                                     type="button big green clickable mr-2"
