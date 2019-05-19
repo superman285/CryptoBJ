@@ -1085,6 +1085,40 @@
     .blackjack-control-area-row1 {
         margin-bottom: 5px;
     }
+    .blackjack-control-area-row3 {
+        display: flex;
+        flex-direction: column;
+        .fate-amount-section {
+            padding: 10px 10px 0;
+            .trx-card,.fate-card {
+                div {
+                    align-items: center;
+                }
+            }
+        }
+        .recharge-section {
+            margin-top: 20px;
+            margin-left: 0;
+            button.recharge-btn {
+                padding: 3px 15px;
+                font-size: 14px!important;
+                width: auto!important;
+            }
+        }
+        /*
+        .recharge-section {
+            margin-left: 1rem;
+            span {
+                font-size: 15px!important;
+                margin-left: 5px;
+            }
+            button.recharge-btn{
+                font-size: 12px!important;
+                width: 100px!important;
+                height: 33px!important;
+            }
+        }*/
+    }
 
     .blackjack-control-area .button {
         margin-bottom: 8px;
@@ -1143,6 +1177,8 @@
         width: 85px;
         top: 75px;
     }
+
+
 
     .blackjack__table--playercards-wrapper,
     .blackjack__table--dealercards,
