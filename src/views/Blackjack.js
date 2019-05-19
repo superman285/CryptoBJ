@@ -186,7 +186,7 @@ export default {
             'getAllBets',
         ]),
         drawMethod(){
-            console.log('没绑上');
+            console.log('翻牌动作没绑上');
             },
         changeVisibleCardScore(side, score) {
             let value = 0;
@@ -311,7 +311,7 @@ export default {
         },
         
         clearBet() {
-            this.game.betHistory.splice(0)
+            this.game.betHistory.splice(0);
             this.player.softBalance += this.game.prepBet;
             this.game.prepBet = 0;
         },
@@ -397,6 +397,7 @@ export default {
         },
 
         orderBetHistory() {
+            console.log('coins sort');
             this.game.betHistory.sort((a, b) => {
                 return b.value - a.value;
             });
@@ -647,7 +648,6 @@ export default {
             // player cards
             for (let side in this.game.state.handInfo) {
                 if (this.handHasCards(side)) {
-
                     //第一张翻，后续先不翻
                     if (this.game.state.handInfo[side].cards[0].anim === 0) {
                         console.log('真正玩家翻牌');
@@ -658,8 +658,9 @@ export default {
                     }
                     for (let i = 1; i < this.game.state.handInfo[side].cards.length; i++) {
                         console.log('玩家牌数',this.game.state.handInfo[side].cards.length);
-                        console.log('绑方法');
+                        console.log('自己绑方法drawMethod');
                         vm.drawMethod = animCard.bind(undefined,side, 0, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
+
                         if (this.game.state.handInfo[side].cards[i].anim === 0) {
                             console.log('真正玩家翻牌');
                             //turn to back side
@@ -676,7 +677,7 @@ export default {
                 }
             }
 
-            // dealer carsd
+            // dealer cards
             let side = 'dealer';
 
             //真正庄家翻牌 第二张不翻，
