@@ -985,18 +985,21 @@
     }
     .blackjack-control-area-row3 {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         .fate-amount-section {
-            padding: 10px 10px 0;
+            display: flex;
+            flex-direction: column;
+            padding: 7px 10px 4px;
             .trx-card,.fate-card {
+                margin-top: 3px;
                 div {
                     align-items: center;
                 }
             }
         }
         .recharge-section {
-            margin-top: 20px;
-            margin-left: 0;
+
+            margin-left: 12%;
             button.recharge-btn {
                 padding: 3px 15px;
                 font-size: 14px!important;
@@ -1096,8 +1099,34 @@
         .cancel-btn {
             margin-right: 3px;
         }
-
     }
+
+    .blackjack-control-area-row3 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        .fate-amount-section {
+            min-width: 148px;
+            .trx-card,.fate-card {
+                div {
+                    align-items: center;
+                }
+            }
+        }
+        .recharge-section {
+            margin-left: 12px;
+            display: flex;
+            align-items: center;
+            button.recharge-btn {
+                min-width: 80px;
+                height: 35px!important;
+                padding: 3px 15px;
+                font-size: 13px!important;
+            }
+        }
+    }
+
+
 }
 
 @media (max-width: 420px) {
@@ -1126,6 +1155,9 @@
     /*.blackjack .button.clickable {
        flex: 0 46%;
    }*/
+    .blackjack-control-area {
+        padding: 15px;
+    }
     .blackjack-control-area-row1 {
         margin-bottom: 5px;
     }
@@ -1145,7 +1177,37 @@
         }
     }
     .blackjack-control-area-row3 {
-
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        .fate-amount-section {
+            min-width: 135px;
+            padding: 0px;
+            .trx-card,.fate-card {
+                div {
+                    align-items: center;
+                    h6 {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .recharge-section {
+            margin-left: 5px;
+            display: flex;
+            align-items: center;
+            .recharge-trx-bal {
+                font-size: 15px;
+                margin-right: 3px;
+                width: 86px;
+            }
+            button.recharge-btn {
+                min-width: 50px;
+                padding: 0 7px;
+                height: 30px!important;
+                font-size: 13px!important;
+            }
+        }
     }
 
     .blackjack-control-area .button {
@@ -1229,7 +1291,14 @@
     }
 }
 
-
+@media (max-width: 320px) {
+    .blackjack-control-area-row3 {
+        .recharge-section {
+            margin-left: 15px;
+            flex-wrap: wrap;
+        }
+    }
+}
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     .blackjack .bet-action-btns-section .button,
