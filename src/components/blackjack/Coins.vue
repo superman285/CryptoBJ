@@ -3,15 +3,17 @@
   <div class="coins-holder">
 
     <div class="player-coins"
-         v-for="n in checkDoubleBet" :key="`coin_${n}`">
+         v-for="n in checkDoubleBet"
+         :key="`coin_${n}`">
       <!--<transition-group
             tag="div"
             name="coins"
             v-on:leave="onLeaveTransition"
+            v-on:enter="onEnterTransition"
             :duration="{leave: 1000}"
       >-->
         <template v-for="(coin,index) in game.betHistory">
-        <img v-if="game.betHistory.length > 0 && index <= 2"
+        <img v-if="game.betHistory.length > 0 && index <= 3"
              v-show="coin.show"
              :key="index"
              v-bind:data-index="index"

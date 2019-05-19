@@ -6,6 +6,7 @@
     justify-content: space-around;
     flex-direction: row;
     width: 100%;
+    //width: 166px;
     height: 45px;
 
     .player-coins,
@@ -45,6 +46,7 @@
 @media (max-width: 767.98px) {
     .coins-holder {
         width: 60px;
+        //width: 150px;
         height: 36px;
         .player-coins,
         .dealer-coins {
@@ -62,6 +64,7 @@
 @media (max-width: 575.98px) {
     .coins-holder {
         width: 50px;
+        //width: 150px;
         height: 32px;
         .player-coins,
         .dealer-coins {

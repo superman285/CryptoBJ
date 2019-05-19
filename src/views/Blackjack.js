@@ -341,6 +341,9 @@ export default {
             this.player.softBalance -= amount;
             this.game.prepBet += amount;
 
+            //serveral small changeinto big
+            this.setBet(this.game.prepBet);
+
             this.showCoinValueInText();
         },
         betInput() {
@@ -398,9 +401,9 @@ export default {
 
         orderBetHistory() {
             console.log('coins sort');
-            this.game.betHistory.sort((a, b) => {
+            /*this.game.betHistory.sort((a, b) => {
                 return b.value - a.value;
-            });
+            });*/
         },
 
         betDouble() {
