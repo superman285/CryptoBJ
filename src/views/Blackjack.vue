@@ -378,8 +378,8 @@
 
                 <div class="blackjack-tablearea">
                     <div class="blackjack-tablearea-firstRow">
-                        <Button type="button huge clickable" class="mr-4" label="my bets"></Button>
-                        <Button type="button huge red-outline clickable" label="all bets"></Button>
+                        <Button type="button huge clickable" class="mr-4 showbet" label="my bets"></Button>
+                        <Button type="button huge red-outline clickable" class="showbet" label="all bets"></Button>
                     </div>
 
                     <div class="blackjack-tablearea-table">
