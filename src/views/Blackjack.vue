@@ -233,6 +233,7 @@
                                 <Button class="recharge-btn"
                                         label="recharge"
                                         type="button big green clickable"
+                                        @button-clicked="showBjRechargeModal"
                                 ></Button>
                             </div>
 
@@ -338,6 +339,7 @@
                                 <Button class="recharge-btn"
                                         label="recharge"
                                         type="button big green clickable"
+                                        @button-clicked="showBjRechargeModal"
                                 ></Button>
                             </div>
 

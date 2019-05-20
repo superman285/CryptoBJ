@@ -24,6 +24,7 @@ export default {
             tempRefCode,
             balance: undefined,
             tempReferralLink: 'www.cryptofate.com/Ref' + tempRefCode,
+            bjRechargeTab: 'tab_recharge',
         };
     },
     watch: {
@@ -36,6 +37,7 @@ export default {
             'betErrorModal',
             'notEnoughBalanceModal',
             'bjTipsModal',
+            'bjRechargeModal',
             'mainnet',
             'address',
             'notMainNetModal',
@@ -66,6 +68,7 @@ export default {
             'closeBetErrorModal',
             'closeNotEnoughBalanceModal',
             'closeBjTipsModal',
+            'closeBjRechargeModal',
             'closeReferralModal',
             'closeDividendsModal',
             'showFreezeModal',

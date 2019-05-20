@@ -14,6 +14,7 @@ export default new Vuex.Store({
             betErrorModal: false,
             notEnoughBalanceModal: false,
             bjTipsModal: false,
+            bjRechargeModal:false,
             notMainNetModal: false,
             referralModal: false,
             dividendsModal: false,
@@ -56,6 +57,9 @@ export default new Vuex.Store({
         },
         bjTipsModal(state) {
             return state.modals.bjTipsModal;
+        },
+        bjRechargeModal(state) {
+            return state.modals.bjRechargeModal;
         },
         notMainNetModal(state) {
             return state.modals.notMainNetModal;
@@ -106,7 +110,7 @@ export default new Vuex.Store({
             Vue.set(state.wallet, 'balance', balance);
         },
         modal(state, { modal, showable }) {
-            ['notEnoughBalanceModal', 'notMainNetModal', 'referralModal', 'dividendsModal', 'freezeModal', 'loginModal'].forEach(modalname => {
+            ['bjRechargeModal','notEnoughBalanceModal', 'notMainNetModal', 'referralModal', 'dividendsModal', 'freezeModal', 'loginModal'].forEach(modalname => {
                 Vue.set(state.modals, modalname, false);
             });
             Vue.set(state.modals, modal, showable);
@@ -198,6 +202,12 @@ export default new Vuex.Store({
         },
         closeBjTipsModal({ commit }) {
             commit('bjTipsModal', false);
+        },
+        showBjRechargeModal({commit}) {
+            commit('modal',{modal: 'bjRechargeModal',showable: true});
+        },
+        closeBjRechargeModal({commit}){
+            commit('modal',{modal: 'bjRechargeModal',showable: false});
         },
         showNotEnoughBalanceModal({ commit }) {
             commit('modal', { modal: 'notEnoughBalanceModal', showable: true });

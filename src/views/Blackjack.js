@@ -128,7 +128,6 @@ export default {
         };
 
         this.socket.on('action', data => {
-
             let syncState = this.syncCardAnimations(data.state);
             this.parseIncomingNewData(syncState);
             vm.game.state = syncState;
@@ -176,6 +175,7 @@ export default {
             'updateBalance',
             'showModal',
             'showBjTipsModal',
+            'showBjRechargeModal',
             'showNotEnoughBalanceModal',
             'closeNotEnoughBalanceModal',
             'showLoginModal',
@@ -186,8 +186,8 @@ export default {
             'getAllBets',
         ]),
         drawMethod(){
-            console.log('翻牌动作没绑上');
-            },
+            console.log('draw the card');
+        },
         changeVisibleCardScore(side, score) {
             let value = 0;
             if (score.hi > 21) {

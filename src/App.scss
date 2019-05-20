@@ -180,6 +180,122 @@ body {
         }
 }
 
+//bj recharge modal
+.bjRechargeModal {
+    padding: 20px;
+    text-align: center;
+    background: #000410 url('./assets/pockerbg.png');
+    border-radius: 10px;
+
+    h2 {
+        color: white;
+        @media (max-width: 767.98px) {
+            font-size: 24px;
+        }
+    }
+
+    &-content {
+        margin-top: 50px;
+        .recharge-tabs {
+            display: flex;
+            justify-content: space-around;
+            @media (max-width: 767.98px) {
+                justify-content: space-evenly;
+            }
+            button {
+                //width: 160px;
+                //height: 36px;
+                padding: 0px 30px 3px;
+                background-color: #000410;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 500;
+                border: none;
+                outline: none;
+                border-radius: 50px;
+                transition: 0.2s;
+                &.active {
+                    background-color: #DD0828;
+                }
+                @media (max-width: 767.98px) {
+                    font-size: 16px;
+                    padding: 0px 20px 3px;
+                }
+            }
+        }
+
+        .input-div {
+            position: relative;
+            height: 50px;
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px auto;
+            padding: 2px 5px;
+            background-color: #1d243a;
+
+            span {
+                position: absolute;
+                right: -60px;
+                font-size: 24px;
+                font-weight: 700;
+                color: #DD0828;
+                @media (max-width: 767.98px) {
+                    right: -36px;
+                    font-size: 16px;
+                }
+            }
+
+            @media (max-width: 575.98px) {
+                height: 42px;
+                width: 80%;
+                padding: 4px 5px;
+            }
+
+            input {
+                background-color: transparent;
+                border: none;
+                color: #ffffff;
+                width: 100%;
+                font-size: 24px;
+                font-weight: 700;
+                padding-left: 20px;
+                outline: none;
+
+                @media (max-width: 767.98px) {
+                    font-size: 16px;
+                    padding-left: 10px;
+                }
+
+                &::-webkit-inner-spin-button,
+                &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                }
+            }
+        }
+
+
+        .recharge-btn {
+            position: relative;
+            margin-top: 60px;
+            span {
+                position: absolute;
+                margin-left: -20px;
+                top: -30px;
+                color: white;
+                @media (max-width: 767.98px) {
+                    top: -24px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+    }
+}
+
 // Dividend Modal
 .dividendModal {
     background: #030b24 url('./assets/pockerbg.png');
