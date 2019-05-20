@@ -4,7 +4,7 @@
             <div class="blackjack__content">
                 <div class="blackjack__table">
                     <!--cheats-->
-                    <!--<div v-if="cheats.enabled" class="cheats">
+                    <div v-if="cheats.enabled" class="cheats">
                         <button class="cheats-title" @click="cheats.visible = !cheats.visible">
                             #CHEATS
                             <small>Click to toggle visiblity</small>
@@ -13,7 +13,7 @@
                         <button v-if="cheats.visible" v-for="(option, index) in cheats.options" @click="triggerCheats(option)" :key="index">
                             {{ option.text }}
                         </button>
-                    </div>-->
+                    </div>
 
                     <div v-if="soundsEnabled" class="audio_icon" :class="{ muted: muted }" @click="toggleMute()">
                         <img src="../assets/btn_audio.png" />
@@ -56,6 +56,9 @@
                                     <div class="blackjack__table--score player-score" v-show="game.cardValues.left > 0">
                                         {{ game.cardValues.left | showCardScore }}
                                     </div>
+                                    <div class="blackjack__table--score player-score" v-show="game.cardValues.left > 0 && playerLoScore('left')" style="right:-72px">
+                                        {{ playerLoScore('left') }}
+                                    </div>
 
                                     <!--    PLAYER CARDS ON LEFT   -->
                                     <Cards
@@ -75,6 +78,9 @@
                                 <div class="blackjack__table--playercards-wrapper" v-if="game.ready && handHasCards('right')">
                                     <div class="blackjack__table--score player-score" v-show="game.cardValues.right > 0">
                                         {{ game.cardValues.right | showCardScore }}
+                                    </div>
+                                    <div class="blackjack__table--score player-score" v-show="game.cardValues.right > 0 && playerLoScore('right')" style="right:-72px">
+                                        {{ playerLoScore('right') | showCardScore }}
                                     </div>
 
                                     <!--    PLAYER CARDS ON RIGHT   -->
@@ -102,8 +108,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
                     <!--addcoin -->

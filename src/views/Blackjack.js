@@ -661,8 +661,6 @@ export default {
                     }
                     for (let i = 1; i < this.game.state.handInfo[side].cards.length; i++) {
                         console.log('玩家牌数',this.game.state.handInfo[side].cards.length);
-                        console.log('自己绑方法drawMethod');
-                        vm.drawMethod = animCard.bind(undefined,side, 0, constants.CARD_STATE_FACE_UP, delay + delayBeforeStateChange);
 
                         if (this.game.state.handInfo[side].cards[i].anim === 0) {
                             console.log('真正玩家翻牌');
@@ -953,8 +951,6 @@ export default {
 
         trxBalance() {
             const tronWeb = window.tronWeb;
-            console.log('trxb',tronWeb);
-            console.log('trxbal',this.balance);
             if (typeof this.balance === 'undefined' || this.balance === null) {
                 return '-';
             }
@@ -969,9 +965,28 @@ export default {
             if (typeof sound === 'undefined') {
                 return false;
             }
-
             this.muted = sound.isMuted(); // works liek init for icon
             return true;
+        },
+
+        playerLoScore(){
+            return (side)=>{
+                if (this.game.state.handInfo[side].playerValue) {
+                    console.log('打印',side,this.game.state.handInfo[side]);
+                    let showScore = this.game.state.handInfo[side].playerValue.lo;
+
+                    if (this.game.cardValues[side]===21 ||
+                        showScore===this.game.state.handInfo[side].playerValue.hi ||
+                        showScore>=21 ||
+                        !this.game.state.handInfo[side].cards.some(val=>val.value===1 || val.value===11)) {
+                        return false;
+                    }else {
+                        return showScore;
+                    }
+                }else {
+                    return false;
+                }
+            };
         },
     },
     filters: {
