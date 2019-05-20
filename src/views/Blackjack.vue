@@ -206,6 +206,8 @@
                                     :class="{ disabled: !actionEnabled('split') }"
                                 >
                                 </Button>
+                                <Button type="button clickable"
+                                        label="insurance"></Button>
                             </div>
                         </div>
 
