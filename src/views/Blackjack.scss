@@ -984,10 +984,16 @@
     .blackjack-control-area-row2 {
         top: -61px;
         .blackjack-deals-hit-stand-btns {
-            width: 90%;
+            //6buttons
+            //width:90%;
+            //4buttons
+            width: 60%;
             margin: 0 auto;
             .button.clickable {
-                flex: 30%;
+                //6buttons
+                //flex:30%;
+                //4buttons
+                flex: 35%;
                 min-width: 80px;
                 height: 25px;
                 font-size: 12px;
@@ -1174,7 +1180,10 @@
     .blackjack-control-area-row2 {
         top: -61px;
         .blackjack-deals-hit-stand-btns {
-            width: 90%;
+            //6buttons
+            //width: 90%;
+            //4buttons
+            width: 70%;
             margin: 0 auto;
             .button.clickable {
                 flex: 30%;

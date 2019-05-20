@@ -177,9 +177,8 @@
                                 ></Button>
                             </div>-->
                             <div class="blackjack-deals-hit-stand-btns" v-if="game.ready">
-                                <Button type="button clickable" label="draw" @button-clicked="drawMethod()">
-                                    <!--:class="{ disabled: !actionEnabled('draw') }"-->
-                                </Button>
+                                <!--<Button type="button clickable" label="draw" @button-clicked="drawMethod()">
+                                </Button>-->
                                 <Button type="button clickable" label="hit" @button-clicked="userAction('hit')" :class="{ disabled: !actionEnabled('hit') }">
                                 </Button>
 
@@ -206,8 +205,8 @@
                                     :class="{ disabled: !actionEnabled('split') }"
                                 >
                                 </Button>
-                                <Button type="button clickable"
-                                        label="insurance"></Button>
+                                <!--<Button type="button clickable"
+                                        label="insurance"></Button>-->
                             </div>
                         </div>
 
@@ -283,9 +282,8 @@
                             </div>-->
                             <div class="blackjack-deals-hit-stand-btns" v-if="game.ready">
 
-                                <Button type="button clickable" label="draw" @button-clicked="drawMethod()">
-                                        <!--:class="{ disabled: !actionEnabled('draw') }"-->
-                                </Button>
+                                <!--<Button type="button clickable" label="draw" @button-clicked="drawMethod()">
+                                </Button>-->
 
                                 <Button type="button clickable" label="hit" @button-clicked="userAction('hit')" :class="{ disabled: !actionEnabled('hit') }">
                                 </Button>
