@@ -22,9 +22,16 @@ export default {
         return {
             isMainNet: true,
             tempRefCode,
-            balance: undefined,
+            //balance: undefined,
             tempReferralLink: 'www.cryptofate.com/Ref' + tempRefCode,
-            bjRechargeTab: 'tab_recharge',
+
+            blackjack: {
+
+                bjRechargeTab: 'tab_recharge',
+                input_rechargeVal: 100,
+                input_withdrawVal: 100,
+            }
+
         };
     },
     watch: {
@@ -40,6 +47,7 @@ export default {
             'bjRechargeModal',
             'mainnet',
             'address',
+            'balance',
             'notMainNetModal',
             'referralModal',
             'dividendsModal',
@@ -58,6 +66,16 @@ export default {
                     : 'betResultMask show'
                 : 'betResultMask';
         },
+        trxBalance() {
+            const tronWeb = window.tronWeb;
+            if (typeof this.balance === 'undefined' || this.balance === null) {
+                return '-';
+            }
+            return tronWeb.BigNumber(tronWeb.fromSun(this.balance || 0)).toFormat(3);
+        },
+        bjBalance() {
+            return this.$store.state.blackjack.softBalance;
+        }
     },
     methods: {
         ...mapActions([
@@ -138,6 +156,15 @@ export default {
                     this.__check_balance_timer = setTimeout(this.checkBalance.bind(this), 3000);
                 });
         },
+
+        //bj recharge
+        bjRecharge(val) {
+            console.log('recharge into state channel');
+        },
+        bjWithdraw(val) {
+            console.log('withdraw from state channel bal');
+        },
+
     },
     created() {
         // hub.$on('not-enough-balance', this.onNotEnoughBalance.bind(this));

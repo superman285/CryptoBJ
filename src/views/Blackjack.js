@@ -948,6 +948,19 @@ export default {
     },
 
     computed: {
+
+        ...mapGetters(['address', 'balance', 'mainnet']),
+
+        trxBalance() {
+            const tronWeb = window.tronWeb;
+            console.log('trxb',tronWeb);
+            console.log('trxbal',this.balance);
+            if (typeof this.balance === 'undefined' || this.balance === null) {
+                return '-';
+            }
+            return tronWeb.BigNumber(tronWeb.fromSun(this.balance || 0)).toFormat(3);
+        },
+
         limitVisibleCoinsOnTable() {
             return this.game.betHistory.slice(0, 3);
         },

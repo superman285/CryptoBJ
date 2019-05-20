@@ -29,6 +29,10 @@ export default new Vuex.Store({
             lottery: undefined, // { lotterynum: 78, state: 10, betamountInTrx: '20,000.0000', winamountInTrx: '20,000.0000' }
             lotteryNumMarksIntrupted: false,
         },
+        blackjack: {
+            softBalance: 50000
+        }
+
     },
     getters: {
         lottery(state) {

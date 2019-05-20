@@ -68,40 +68,41 @@
                     <h2>Recharge</h2>
                     <div class="bjRechargeModal-content">
                         <div class="recharge-tabs">
-                            <button :class="{active:bjRechargeTab=='tab_recharge'}"
+                            <button :class="{active:blackjack.bjRechargeTab=='tab_recharge'}"
                                     class="tab"
-                                    @click="bjRechargeTab='tab_recharge'"
+                                    @click="blackjack.bjRechargeTab='tab_recharge'"
                             >Recharge</button>
-                            <button :class="{active:bjRechargeTab=='tab_withdraw'}"
+                            <button :class="{active:blackjack.bjRechargeTab=='tab_withdraw'}"
                                     class="tab"
-                                    @click="bjRechargeTab='tab_withdraw'"
+                                    @click="blackjack.bjRechargeTab='tab_withdraw'"
                             >Withdraw</button>
                         </div>
-                        <div v-show="bjRechargeTab=='tab_withdraw'">
+                        <div v-show="blackjack.bjRechargeTab=='tab_withdraw'">
                         <!--<label for="text"><input id="text" type="text" > TRX</label>-->
                             <div class="input-div">
-                                <input id="withdraw" value="100" type="number" placeholder="Please enter the amount">
+                                <input id="withdraw" :value="blackjack.input_withdrawVal" type="number" placeholder="Please enter the amount">
                                 <span>TRX</span>
                             </div>
 
                             <div class="recharge-btn">
-                                <span class="trxbal">Maximum available: 1000 trx</span>
+                                <span class="trxbal">Maximum available: {{bjBalance}} trx</span>
                                 <Button class="recharge-wbtn"
                                         label="withdraw"
                                         type="button big green clickable"
+                                        @button-cliked="bjWithdraw"
                                 ></Button>
                             </div>
-
                         </div>
-                        <div v-show="bjRechargeTab=='tab_recharge'">
+                        <div v-show="blackjack.bjRechargeTab=='tab_recharge'">
                             <div class="input-div">
-                                <input value="1000" type="number" placeholder="Please enter the amount">
+                                <input :value="blackjack.input_rechargeVal" type="number" placeholder="Please enter the amount">
                                 <span>TRX</span>
                             </div>
                             <div class="recharge-btn">
                             <Button class="recharge-rbtn"
                                     label="recharge"
                                     type="button big green clickable"
+                                    @button-cliked="bjRecharge"
                             ></Button>
                             </div>
                         </div>
