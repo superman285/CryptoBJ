@@ -15,6 +15,7 @@ import { mapActions, mapGetters, mapState } from 'vuex';
 
 
 let ENABLED_COINS = [10, 50, 100, 500,1000,5000];
+let REVERSE_ENABLED_COINS = [5000,1000,500,100,50,10];
 
 let errorNotification = msg => {
     //TODO: change with toast
@@ -62,6 +63,16 @@ export default {
                 double: 1,
                 clean: false,
                 playerConfirmBet: false,
+
+            },
+            coinsWrap:{
+                coin10_flag: 0,
+                coin50_flag: 0,
+                coin100_flag: 0,
+                coin500_flag: 0,
+                coin1000_flag: 0,
+                coin5000_flag: 0,
+                addedCoins: []
             },
 
             cheats: cheats !== undefined ? cheats : {},
@@ -335,14 +346,81 @@ export default {
 
             //TODO: play add coin sound
             //this.$emit('sound:shuffle');
-            this.game.betHistory.push({ value: amount, show: true });
-            this.orderBetHistory();
+
+
+
+
+            let vm = this;
+            function addCoin(coin) {
+                vm.game.betHistory.push({ value: coin, show: true });
+                vm.coinsWrap.addedCoins.push(coin);
+                vm.coinsWrap[`coin${coin}_flag`]++;
+            }
+            function swapCoin(small_coin,big_coin){
+                if (vm.coinsWrap[`coin${small_coin}_flag`] === (big_coin/small_coin)) {
+                    for (let i = 0; i < (big_coin/small_coin); i++) {
+                        console.log('addedCoins idx',vm.coinsWrap.addedCoins.indexOf(small_coin));
+                        vm.game.betHistory.splice(vm.coinsWrap.addedCoins.indexOf(small_coin),1);
+                        vm.coinsWrap.addedCoins.splice(vm.coinsWrap.addedCoins.indexOf(small_coin),1);
+                        vm.coinsWrap[`coin${small_coin}_flag`] --;
+                    }
+                    vm.game.betHistory.push({ value: big_coin, show: true });
+                    vm.coinsWrap.addedCoins.push(big_coin);
+                    vm.coinsWrap[`coin${big_coin}_flag`]++;
+                    console.log('coinsmallflag',vm.coinsWrap[`coin${small_coin}_flag`]);
+                    console.log('coinbigflag',vm.coinsWrap[`coin${big_coin}_flag`]);
+                    console.log('addedCoins',vm.coinsWrap.addedCoins);
+                }
+            }
+
+            /* eslint-disable */
+            //serveral small changeinto big
+            switch (amount) {
+                case 10:
+                    addCoin(10);
+                    swapCoin(10,50);
+                    swapCoin(50,100);
+                    swapCoin(100,500);
+                    swapCoin(500,1000);
+                    swapCoin(1000,5000);
+                    break;
+                case 50:
+                    addCoin(50);
+                    swapCoin(50,100);
+                    swapCoin(100,500);
+                    swapCoin(500,1000);
+                    swapCoin(1000,5000);
+                    break;
+                case 100:
+                    addCoin(100);
+                    swapCoin(100,500);
+                    swapCoin(500,1000);
+                    swapCoin(1000,5000);
+                    break;
+                case 500:
+                    addCoin(500);
+                    swapCoin(500,1000);
+                    swapCoin(1000,5000);
+                    break;
+                case 1000:
+                    addCoin(1000);
+                    swapCoin(1000,5000);
+                    break;
+                case 5000:
+                    addCoin(5000);
+                    break;
+            }
+            /* eslint-enable */
+
+            //this.game.betHistory.push({ value: amount, show: true });
+            //this.orderBetHistory();
 
             this.player.softBalance -= amount;
             this.game.prepBet += amount;
 
-            //serveral small changeinto big
-            this.setBet(this.game.prepBet);
+            console.log('betHistory',this.game.betHistory);
+            console.log('softBal',this.player.softBalance);
+            console.log('bal',this.player.balance);
 
             this.showCoinValueInText();
         },
@@ -382,7 +460,6 @@ export default {
             this.game.prepBet = bet;
 
             this.showCoinValueInText();
-
             return true;
         },
 
@@ -808,8 +885,8 @@ export default {
 
         triggerCoinsAnimation() {
             this.$root.$emit('coinsTotalBetVisible', false);
-
-            let delayBetweenCoins = 140; // in ms, default 150 (which is 0.1 second)
+            //default 140 too slow
+            let delayBetweenCoins = 10; // in ms, default 150 (which is 0.1 second)
             let vm = this;
             let delayedCoinTransitions = (_index, _delay) => {
                 setTimeout(() => {
@@ -818,7 +895,8 @@ export default {
             };
 
             for (let i = 0; i < this.game.betHistory.length; i++) {
-                if (i >= 3) break;
+                // follow coins index on Coins.vue
+                // if (i >= 3) break;
                 delayedCoinTransitions(i, i * delayBetweenCoins);
             }
         },

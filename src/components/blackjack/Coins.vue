@@ -13,14 +13,14 @@
             :duration="{leave: 1000}"
       >-->
         <template v-for="(coin,index) in game.betHistory">
-        <img v-if="game.betHistory.length > 0 && index <= 2"
+        <img v-if="game.betHistory.length > 0 && index <= 25"
              v-show="coin.show"
              :key="index"
              v-bind:data-index="index"
              :class="`coin-image coin-index-${index}`"
              :src="getCoinImage(coin.value)"
              class="animated fadeInDown faster"
-        />
+        >
         </template>
       <!--</transition-group>-->
 

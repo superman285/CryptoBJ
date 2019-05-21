@@ -140,25 +140,19 @@ export default {
       },
 
       onPlayerCardEnter(el){
-
           let side = 'right';
           if(el.dataset.side !== undefined && el.dataset.side === 'left') side = 'left';
-
           const animationSpeed = constants.CARD_REVEAL_ANIMATION_SPEED;
           const animationOpacitySpeed = animationSpeed / 2;
-
           if(this.positions.deck === undefined || this.positions[side] === undefined){
               let wait = (this.getElementsPositions());
           }
-
           const deckPosition = this.positions.deck;
           const cardPosition = this.positions[side];
-
           let x = parseInt(Math.abs(deckPosition.left - cardPosition.left - deckPosition.width));
           let y = parseInt(Math.abs(deckPosition.top -  cardPosition.top + deckPosition.height/2));
 
           const timeline = new TimelineLite();
-
           // set starting animation point
           timeline.set(el, {
               opacity: 0,
